@@ -1,12 +1,15 @@
 import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
+import { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
 import "./CurrentWeather.css";
 
 const CurrentWeather = () => {
+  const currentCity = useSelector((state: RootState) => state.currentCity);
   const {
     data: currentWeather,
     error,
     isPending: isWeatherPending,
-  } = useGetCurrentWeather("London");
+  } = useGetCurrentWeather(currentCity);
 
   if (error) {
     return <div>Something went wrong...</div>;

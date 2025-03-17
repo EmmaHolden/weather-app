@@ -2,12 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const currentCitySlice = createSlice({
   name: "currentCity",
-  initialState: {
-    currentCity: "London",
-  },
+  initialState: "London",
   reducers: {
     setCurrentCity: (state, action) => {
-      state.currentCity = action.payload;
+      state = action.payload;
     },
   },
 });
