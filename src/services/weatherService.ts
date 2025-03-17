@@ -1,12 +1,25 @@
 import axios from "axios";
 
 const API_KEY = import.meta.env.VITE_APP_OPENWEATHER_API_KEY;
-const BASE_URL = "https://api.openweathermap.org/data/2.5/weather";
+const CURRENT_WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather";
+const FORECAST_URL = "https://api.openweathermap.org/data/2.5/forecast";
 
-export const getWeather = async (city: string) => {
-  const response = await axios.get(BASE_URL, {
+export const getCurrentWeather = async (city: string) => {
+  const response = await axios.get(CURRENT_WEATHER_URL, {
     params: {
       q: city,
+      appid: API_KEY,
+      units: "metric",
+    },
+  });
+  return response.data;
+};
+
+export const getWeatherForecast = async (city: string) => {
+  const response = await axios.get(FORECAST_URL, {
+    params: {
+      lon: "11",
+      lat: "45",
       appid: API_KEY,
       units: "metric",
     },
