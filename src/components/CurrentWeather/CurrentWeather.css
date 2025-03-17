@@ -22,8 +22,8 @@
 }
 
 .widgets-container {
-  margin: 1%;
   display: flex;
+  justify-content: center;
   width: 90%;
 }
 
