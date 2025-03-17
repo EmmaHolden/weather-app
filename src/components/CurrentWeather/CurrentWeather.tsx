@@ -2,6 +2,7 @@ import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 import "./CurrentWeather.css";
+import classNames from "classnames";
 
 const CurrentWeather = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -19,8 +20,17 @@ const CurrentWeather = () => {
     return <div>Loading...</div>;
   }
 
+  const classes = classNames("current-weather-container", {
+    thunderstorm: currentWeather.main === "Thunderstorm",
+    rain: ["Rain", "Drizzle"].includes(currentWeather.main),
+    clear: currentWeather.main === "Clear",
+    snow: currentWeather.main === "Snow",
+    clouds: currentWeather.main === "Clouds",
+    atmosphere: currentWeather.main === "Atmosphere",
+  });
+
   return (
-    <div className="current-weather-container clear">
+    <div className={classes}>
       <h2 className="no-margin">{currentWeather.cityName}</h2>
       <p>Monday 10th March 2025</p>
       <div className="current-weather-window">

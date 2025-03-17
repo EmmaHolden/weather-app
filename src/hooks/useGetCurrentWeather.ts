@@ -7,6 +7,7 @@ export const useGetCurrentWeather = (city: string) => {
     queryFn: () => getCurrentWeather(city),
     select: (data) => ({
       cityName: data.name,
+      main: data.weather[0].main,
       description: data.weather[0].description,
       icon: data.weather[0].icon,
       temperature: Math.round(data.main.temp),
