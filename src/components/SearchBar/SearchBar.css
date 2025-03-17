@@ -1,0 +1,11 @@
+.search-bar-container {
+  display: flex;
+  max-width: 100%;
+  margin: 0.5rem;
+}
+
+.search-bar {
+  width: 100%;
+  flex: 1;
+  box-sizing: border-box;
+}
