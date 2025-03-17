@@ -18,8 +18,7 @@ export const getCurrentWeather = async (city: string) => {
 export const getWeatherForecast = async (city: string) => {
   const response = await axios.get(FORECAST_URL, {
     params: {
-      lon: "11",
-      lat: "45",
+      q: city,
       appid: API_KEY,
       units: "metric",
     },
