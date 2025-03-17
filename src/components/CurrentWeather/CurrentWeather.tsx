@@ -9,7 +9,7 @@ const CurrentWeather = () => {
     data: currentWeather,
     error,
     isPending: isWeatherPending,
-  } = useGetCurrentWeather(currentCity);
+  } = useGetCurrentWeather(currentCity.city);
 
   if (error) {
     return <div>Something went wrong...</div>;
