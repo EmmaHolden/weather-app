@@ -8,7 +8,7 @@ export const useGetCurrentWeather = (city: string) => {
     select: (data) => ({
       description: data.weather[0].description,
       icon: data.weather[0].icon,
-      temperature: data.main.temp,
+      temperature: Math.round(data.main.temp),
       feels_like: data.main.feels_like,
       humidity: data.main.humidity,
       wind_speed: data.wind.speed,
