@@ -5,6 +5,12 @@ import "./CurrentWeather.css";
 import classNames from "classnames";
 
 const CurrentWeather = () => {
+  const currentDate = new Date().toLocaleDateString("en-GB", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
   const currentCity = useSelector((state: RootState) => state.currentCity);
   const {
     data: currentWeather,
@@ -32,7 +38,7 @@ const CurrentWeather = () => {
   return (
     <div className={classes}>
       <h2 className="no-margin">{currentWeather.cityName}</h2>
-      <p>Monday 10th March 2025</p>
+      <p>{currentDate}</p>
       <div className="current-weather-window">
         <p>{currentWeather.description}</p>
         <img
