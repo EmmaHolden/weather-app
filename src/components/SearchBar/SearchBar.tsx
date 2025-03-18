@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import "./SearchBar.css";
 import { setCurrentCity } from "../../redux/currentCity";
 import { useState } from "react";
+import "./SearchBar.css";
 
 const SearchBar = () => {
   const dispatch = useDispatch();

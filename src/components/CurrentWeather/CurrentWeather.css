@@ -1,54 +1,46 @@
-.current-temperature {
-  font-size: 4rem;
-  margin: 0;
-}
-
 .current-weather-container {
   display: flex;
   flex-direction: column;
-  border-radius: 12px;
   align-items: center;
-  max-width: 100%;
-  padding: 1rem;
+  justify-content: center;
+  flex: 0.3;
+}
+
+.current-weather-container p {
   margin: 0.5rem;
-  flex: 1;
+}
+
+.current-temperature {
+  font-size: 2.5rem;
+  margin: 0.1rem;
 }
 
 .current-weather-window {
   border-radius: 50%;
   aspect-ratio: 1 / 1;
-  padding: 3%;
+  padding: 0.3rem;
   background: rgba(255, 255, 255, 0.25);
 }
 
-.widgets-container {
+.current-weather-items-container {
   display: flex;
   justify-content: center;
   width: 90%;
+  margin: 0.3rem;
 }
 
-.weather-icon {
-  width: 20px;
-}
-
-.widget {
+.current-weather-item {
   min-width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 12px;
-  box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.37);
-  margin: 1%;
-  padding: 2%;
+  margin: 0.3rem;
+  padding: 0.3rem;
 }
 
-.widget p {
-  margin: 1%;
-}
-
-.widget img {
-  margin: 5%;
+.current-weather-item img {
+  margin: 3%;
+  width: 20%;
 }
 
 .clear {
@@ -80,10 +72,4 @@
 .atmosphere {
   background: var(--brightGreen);
   border: solid 0.3vw var(--mediumBlue);
-}
-
-@media (max-width: 768px) {
-  .current-weather-container {
-    flex: 1 1 100%;
-  }
 }

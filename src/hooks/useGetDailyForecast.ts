@@ -16,12 +16,11 @@ export const useGetDailyForecast = (city: string) => {
     const todayDate = new Date().toLocaleDateString("en-GB", {
       weekday: "short",
     });
-    const rawDate = timestamp.dt_txt.split(" ")[0];
-    let date = new Date(rawDate).toLocaleDateString("en-GB", {
+    let date = new Date(timestamp.dt_txt).toLocaleDateString("en-GB", {
       weekday: "short",
     });
     if (date === todayDate) {
-      date = "Today";
+      continue;
     }
     const time = timestamp.dt_txt.split(" ")[1];
     const currentTemp = timestamp.main.temp;
