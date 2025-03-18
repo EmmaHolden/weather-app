@@ -49,22 +49,10 @@ const CurrentWeather = () => {
       </div>
       <div className="widgets-container">
         <div className="widget">
-          <img className="weather-icon" src="../images/max.png" />
-          <p>{currentWeather.tempMax}°C</p>
-          <p>High</p>
-        </div>
-        <div className="widget">
-          <img className="weather-icon" src="../images/min.png" />
-          <p>{currentWeather.tempMin}°C</p>
-          <p>Low</p>
-        </div>
-        <div className="widget">
           <img className="weather-icon" src="../images/thermometer.png" />
           <p>{currentWeather.feelsLike}°C</p>
           <p>Feels</p>
         </div>
-      </div>
-      <div className="widgets-container">
         <div className="widget">
           <img className="weather-icon" src="../images/humidity.png" />
           <p>{currentWeather.humidity}%</p>
@@ -74,11 +62,6 @@ const CurrentWeather = () => {
           <img className="weather-icon" src="../images/windSpeed.png" />
           <p>{currentWeather.windSpeed}m/s</p>
           <p>Wind</p>
-        </div>
-        <div className="widget">
-          <img className="weather-icon" src="../images/gauge.png" />
-          <p>{currentWeather.pressure}hPa</p>
-          <p>Pressure</p>
         </div>
       </div>
     </div>

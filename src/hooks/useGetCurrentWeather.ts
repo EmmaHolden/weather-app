@@ -14,8 +14,6 @@ export const useGetCurrentWeather = (city: string) => {
       feelsLike: Math.round(data.main.feels_like),
       humidity: data.main.humidity,
       windSpeed: Math.round(data.wind.speed),
-      tempMin: Math.round(data.main.temp_min),
-      tempMax: Math.round(data.main.temp_max),
       pressure: data.main.pressure,
     }),
     enabled: !!city,
