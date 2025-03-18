@@ -1,0 +1,24 @@
+.twenty-four-hour-forecast-container {
+  display: flex;
+  max-width: 100%;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.twenty-four-hour-forecast-items-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.twenty-four-hour-forecast-item {
+  display: flex;
+  flex-direction: column;
+  margin: 0.2rem;
+  padding: 0.2rem;
+  flex: 1;
+}
+
+.twenty-four-hour-forecast-item img {
+  width: 20%;
+}
