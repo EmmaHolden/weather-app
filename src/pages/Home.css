@@ -2,6 +2,34 @@
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 0.5rem;
+  padding: 1rem;
   text-align: center;
+}
+
+.main-container {
+  border-radius: 12px;
+  background-color: var(--yellow);
+  border: solid 0.3vw var(--orange);
+  padding: 0.2rem;
+  margin: 0.4rem;
+}
+
+.frosted-item {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.37);
+}
+
+.frosted-item p {
+  margin: 0.1rem;
+  white-space: nowrap;
+  text-align: center;
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .horizontal-home-container {
+    display: flex;
+    justify-content: space-between;
+  }
 }

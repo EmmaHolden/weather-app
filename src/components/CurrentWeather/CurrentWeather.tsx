@@ -26,7 +26,7 @@ const CurrentWeather = () => {
     return <div>Loading...</div>;
   }
 
-  const classes = classNames("current-weather-container", {
+  const classes = classNames("current-weather-container", "main-container", {
     thunderstorm: currentWeather.main === "Thunderstorm",
     rain: ["Rain", "Drizzle"].includes(currentWeather.main),
     clear: currentWeather.main === "Clear",
@@ -47,18 +47,18 @@ const CurrentWeather = () => {
 
         <p className="current-temperature">{currentWeather.temperature}°C</p>
       </div>
-      <div className="widgets-container">
-        <div className="widget">
+      <div className="current-weather-items-container">
+        <div className="current-weather-item frosted-item">
           <img className="weather-icon" src="../images/thermometer.png" />
           <p>{currentWeather.feelsLike}°C</p>
           <p>Feels</p>
         </div>
-        <div className="widget">
+        <div className="current-weather-item frosted-item">
           <img className="weather-icon" src="../images/humidity.png" />
           <p>{currentWeather.humidity}%</p>
           <p>Humidity</p>
         </div>
-        <div className="widget">
+        <div className="current-weather-item frosted-item">
           <img className="weather-icon" src="../images/windSpeed.png" />
           <p>{currentWeather.windSpeed}m/s</p>
           <p>Wind</p>
