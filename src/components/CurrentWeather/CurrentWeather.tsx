@@ -12,17 +12,10 @@ const CurrentWeather = () => {
     day: "numeric",
   });
   const currentCity = useSelector((state: RootState) => state.currentCity);
-  const {
-    data: currentWeather,
-    error,
-    isPending: isWeatherPending,
-  } = useGetCurrentWeather(currentCity.city);
+  const { data: currentWeather, isPending: isWeatherPending } =
+    useGetCurrentWeather(currentCity.city);
 
-  if (error) {
-    return <div>Something went wrong...</div>;
-  }
-
-  if (isWeatherPending) {
+  if (isWeatherPending || !currentWeather) {
     return <div>Loading...</div>;
   }
 

@@ -1,8 +1,8 @@
-import CurrentWeather from "../components/CurrentWeather/CurrentWeather";
-import DailyForecast from "../components/DailyForecast/DailyForecast";
-import OneDayForecast from "../components/OneDayForecast/OneDayForecast";
-import CurrentWeatherStats from "../components/CurrentWeatherStats/CurrentWeatherStats";
-import Navbar from "../components/Navbar/Navbar";
+import CurrentWeather from "../../components/CurrentWeather/CurrentWeather";
+import DailyForecast from "../../components/DailyForecast/DailyForecast";
+import OneDayForecast from "../../components/OneDayForecast/OneDayForecast";
+import CurrentWeatherStats from "../../components/CurrentWeatherStats/CurrentWeatherStats";
+import Navbar from "../../components/Navbar/Navbar";
 import "./Home.css";
 
 const Home = () => {

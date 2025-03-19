@@ -1,7 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { getCurrentWeather } from "../services/weatherService";
+import { useNavigate } from "react-router-dom";
+import { RoutePath } from "../types/global";
+import { useEffect } from "react";
 
 export const useGetCurrentWeather = (city: string) => {
+  const navigate = useNavigate();
+
   const query = useQuery({
     queryKey: ["current-weather", city],
     queryFn: () => getCurrentWeather(city),
@@ -23,5 +28,12 @@ export const useGetCurrentWeather = (city: string) => {
     enabled: !!city,
     staleTime: Infinity,
   });
+
+  useEffect(() => {
+    if (query.isError) {
+      navigate(RoutePath.ServerError);
+    }
+  }, [query.isError]);
+
   return query;
 };

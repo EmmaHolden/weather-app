@@ -7,15 +7,9 @@ import WeatherDate from "../WeatherDate/WeatherDate";
 
 const OneDayForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
-  const {
-    data: forecastData,
-    error,
-    isPending: isForecastPending,
-  } = useGetForecast(currentCity.city);
-
-  if (error) {
-    return <div>Something went wrong...</div>;
-  }
+  const { data: forecastData, isPending: isForecastPending } = useGetForecast(
+    currentCity.city
+  );
 
   if (isForecastPending) {
     return <div>Loading...</div>;

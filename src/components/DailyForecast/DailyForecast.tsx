@@ -6,15 +6,9 @@ import "./DailyForecast.css";
 const DailyForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
 
-  const {
-    dailyForecast,
-    error,
-    isPending: isForecastPending,
-  } = useGetDailyForecast(currentCity.city);
-
-  if (error) {
-    return <div>Something went wrong...</div>;
-  }
+  const { dailyForecast, isPending: isForecastPending } = useGetDailyForecast(
+    currentCity.city
+  );
 
   if (isForecastPending) {
     return <div>Loading...</div>;
