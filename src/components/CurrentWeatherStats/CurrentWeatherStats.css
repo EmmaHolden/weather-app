@@ -12,17 +12,3 @@
   margin: 0.5rem;
   padding: 0.5rem;
 }
-
-.current-weather-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  margin: 0.3rem;
-  padding: 0.3rem;
-}
-
-.current-weather-item img {
-  margin: 5%;
-  width: 30%;
-}

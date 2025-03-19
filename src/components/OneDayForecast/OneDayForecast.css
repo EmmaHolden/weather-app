@@ -12,15 +12,3 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
-
-.twenty-four-hour-forecast-item {
-  display: flex;
-  flex-direction: column;
-  margin: 0.3rem;
-  padding: 0.1rem;
-  flex: 1;
-}
-
-.twenty-four-hour-forecast-item img {
-  width: 20%;
-}

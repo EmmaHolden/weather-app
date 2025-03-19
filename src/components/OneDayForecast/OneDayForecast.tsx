@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { useGetForecast } from "../../hooks/useGetForecast";
 import "./OneDayForecast.css";
+import Widget from "../Widget/Widget";
 
 const OneDayForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -29,10 +30,7 @@ const OneDayForecast = () => {
       <h2 className="no-margin">24h Forecast</h2>
       <div className="twenty-four-hour-forecast-container">
         {nextTwentyFourHours.map((item: any, index: any) => (
-          <div
-            className="twenty-four-hour-forecast-item frosted-item"
-            key={index}
-          >
+          <Widget key={index}>
             <div>
               <p>
                 {new Date(item.dt_txt).toLocaleDateString("en-GB", {
@@ -47,13 +45,12 @@ const OneDayForecast = () => {
               </p>
             </div>
             <div>
-              <p>{item.weather[0].description}</p>
               <img
                 src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
               />
             </div>
             <p>{Math.round(item.main.temp)}°C</p>
-          </div>
+          </Widget>
         ))}
       </div>
     </div>

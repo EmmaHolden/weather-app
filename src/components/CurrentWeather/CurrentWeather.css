@@ -91,7 +91,7 @@
 } */
 
 .atmosphere:hover {
-  background: url("../images/clouds.jpg");
+  background: url("../images/atmosphere.jpg");
   background-size: cover;
   background-position: center;
 }
