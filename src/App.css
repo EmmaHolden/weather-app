@@ -1,4 +1,8 @@
 :root {
+  --background: #78a0cf;
+  --cardBackground: #e3f2fd;
+  --cardBorder: #deecf9;
+  --text: #472b29;
   --white: #f0edee;
   --blue: #bbdefb;
   --paleBlue: #e3f2fd;
@@ -27,8 +31,8 @@
 }
 
 body {
-  background-color: var(--paleBlue);
-  font-family: "Andale Mono", "Monaco", monospace;
+  background-color: var(--background);
+  font-family: "Poppins", "Quicksand", sans-serif;
 }
 
 .no-margin {

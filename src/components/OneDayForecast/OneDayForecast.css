@@ -3,6 +3,7 @@
   max-width: 100%;
   flex: 1;
   overflow-x: auto;
+  margin: 0.3rem;
 }
 
 .twenty-four-hour-forecast-items-container {

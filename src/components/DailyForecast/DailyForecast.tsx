@@ -22,7 +22,7 @@ const DailyForecast = () => {
 
   return (
     <div className="five-day-forecast-container main-container">
-      <h3 className="no-margin">5 day forecast</h3>
+      <h2 className="no-margin">5 day forecast</h2>
       <div className="five-day-forecast-items-container">
         {dailyForecast.map((day, index) => {
           return (
