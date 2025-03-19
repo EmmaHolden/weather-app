@@ -9,15 +9,15 @@
 .main-container {
   border-radius: 12px;
   background-color: var(--cardBackground);
-  border: solid 0.3vw var(--cardBorder);
+  border: solid 0.1vw var(--cardBorder);
   color: var(--text);
-  padding: 0.2rem;
+  padding: 0.4rem;
   margin: 0.4rem;
 }
 
 .frosted-item {
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--frostedItems);
   box-shadow: 0 4px 4px rgba(30, 30, 130, 0.3);
 }
 

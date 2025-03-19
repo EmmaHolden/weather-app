@@ -1,7 +1,8 @@
 :root {
-  --background: #78a0cf;
-  --cardBackground: #e3f2fd;
-  --cardBorder: #deecf9;
+  --background: #e3f2fd;
+  --cardBackground: #bbdefb;
+  --cardBorder: #78a0cf;
+  --frostedItems: rgba(227, 242, 253, 0.8);
   --text: #472b29;
   --white: #f0edee;
   --blue: #bbdefb;
