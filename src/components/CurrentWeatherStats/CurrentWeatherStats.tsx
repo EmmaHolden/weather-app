@@ -7,19 +7,12 @@ import WeatherDate from "../WeatherDate/WeatherDate";
 
 const CurrentWeatherStats = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
-  const {
-    data: currentWeather,
-    error,
-    isPending: isWeatherPending,
-  } = useGetCurrentWeather(currentCity.city);
+  const { data: currentWeather, isPending: isWeatherPending } =
+    useGetCurrentWeather(currentCity.city);
 
   const timezoneOffset = currentWeather?.timezone;
 
-  if (error) {
-    return <div>Something went wrong...</div>;
-  }
-
-  if (isWeatherPending) {
+  if (isWeatherPending || !currentWeather) {
     return <div>Loading...</div>;
   }
 

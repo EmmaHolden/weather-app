@@ -1,7 +1,7 @@
 import { useGetForecast } from "./useGetForecast";
 
 export const useGetDailyForecast = (city: string) => {
-  const { data, error, isPending } = useGetForecast(city);
+  const { data, isPending } = useGetForecast(city);
 
   let dailyForecast: {
     date: string;
@@ -10,7 +10,7 @@ export const useGetDailyForecast = (city: string) => {
     icon: string;
   }[] = [];
 
-  if (!data?.list) return { dailyForecast, error, isPending };
+  if (!data?.list) return { dailyForecast, isPending };
 
   for (let timestamp of data.list) {
     let date = new Date(timestamp.dt_txt).toLocaleDateString("en-GB", {
@@ -42,5 +42,5 @@ export const useGetDailyForecast = (city: string) => {
     dailyForecast = dailyForecast.slice(1);
   }
 
-  return { dailyForecast, error, isPending };
+  return { dailyForecast, isPending };
 };
