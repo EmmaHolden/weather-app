@@ -15,15 +15,17 @@ const SearchBar = () => {
     dispatch(setCurrentCity(inputValue));
   };
   return (
-    <div className="search-bar-container">
+    <>
       <input
-        className="search-bar"
+        className="searchbar"
         type="text"
         placeholder="Search for a city"
         onChange={handleChange}
       ></input>
-      <button onClick={handleSearch}>Search</button>
-    </div>
+      <button className="search-button" onClick={handleSearch}>
+        ?
+      </button>
+    </>
   );
 };
 

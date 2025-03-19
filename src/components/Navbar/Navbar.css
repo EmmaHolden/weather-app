@@ -1,0 +1,8 @@
+.navbar {
+  background-color: var(--cardBackground);
+  margin: 0.4rem;
+  border-radius: 16px;
+  border: solid 0.1vw var(--mediumBlue);
+  display: flex;
+  padding: 0.2rem;
+}
