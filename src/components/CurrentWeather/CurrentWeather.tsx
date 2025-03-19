@@ -36,7 +36,7 @@ const CurrentWeather = () => {
   });
 
   return (
-    <div className={classes}>
+    <div className="current-weather-container main-container">
       <h2 className="no-margin">{currentWeather.cityName}</h2>
       <p>{currentDate}</p>
       <div className="current-weather-window">
@@ -46,23 +46,6 @@ const CurrentWeather = () => {
         />
 
         <p className="current-temperature">{currentWeather.temperature}°C</p>
-      </div>
-      <div className="current-weather-items-container">
-        <div className="current-weather-item frosted-item">
-          <img className="weather-icon" src="../images/thermometer.png" />
-          <p>{currentWeather.feelsLike}°C</p>
-          <p>Feels</p>
-        </div>
-        <div className="current-weather-item frosted-item">
-          <img className="weather-icon" src="../images/humidity.png" />
-          <p>{currentWeather.humidity}%</p>
-          <p>Humidity</p>
-        </div>
-        <div className="current-weather-item frosted-item">
-          <img className="weather-icon" src="../images/windSpeed.png" />
-          <p>{currentWeather.windSpeed}m/s</p>
-          <p>Wind</p>
-        </div>
       </div>
     </div>
   );
