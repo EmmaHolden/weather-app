@@ -1,4 +1,4 @@
-.current-weather-stats-container {
+.current-conditions-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,9 +6,14 @@
   flex: 0.5;
 }
 
-.current-weather-items-container {
+.current-conditions-items-container {
   display: flex;
   justify-content: center;
   margin: 0.5rem;
   padding: 0.5rem;
+}
+
+.current-conditions-items-container img {
+  width: 40%;
+  margin: 5%;
 }

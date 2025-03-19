@@ -3,6 +3,7 @@ import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 import "./CurrentWeatherStats.css";
 import Widget from "../Widget/Widget";
+import WeatherDate from "../WeatherDate/WeatherDate";
 
 const CurrentWeatherStats = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -14,22 +15,6 @@ const CurrentWeatherStats = () => {
 
   const timezoneOffset = currentWeather?.timezone;
 
-  const sunriseTime = new Date(
-    (currentWeather?.sunrise + timezoneOffset) * 1000
-  ).toLocaleTimeString("en-GB", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
-
-  const sunsetTime = new Date(
-    (currentWeather?.sunset + timezoneOffset) * 1000
-  ).toLocaleTimeString("en-GB", {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-  });
-
   if (error) {
     return <div>Something went wrong...</div>;
   }
@@ -39,9 +24,9 @@ const CurrentWeatherStats = () => {
   }
 
   return (
-    <div className="current-weather-stats-container main-container">
+    <div className="current-conditions-container main-container">
       <h2 className="no-margin">Current Conditions</h2>
-      <div className="current-weather-items-container">
+      <div className="current-conditions-items-container">
         <Widget>
           <img src="../images/condition-icons/thermometer.png" />
           <p>{currentWeather.feelsLike}°C</p>
@@ -58,7 +43,7 @@ const CurrentWeatherStats = () => {
           <p>Wind Speed</p>
         </Widget>
       </div>
-      <div className="current-weather-items-container">
+      <div className="current-conditions-items-container">
         <Widget>
           <img src="../images/condition-icons/pressure.png" />
           <p>{currentWeather.pressure} hPa</p>
@@ -66,12 +51,18 @@ const CurrentWeatherStats = () => {
         </Widget>
         <Widget>
           <img src="../images/condition-icons/sunrise.png" />
-          <p>{sunriseTime}</p>
+          <WeatherDate
+            variant="hour-minute"
+            rawDate={(currentWeather?.sunrise + timezoneOffset) * 1000}
+          />
           <p>Sunrise</p>
         </Widget>
         <Widget>
           <img src="../images/condition-icons/sunset.png" />
-          <p>{sunsetTime}</p>
+          <WeatherDate
+            variant="hour-minute"
+            rawDate={(currentWeather?.sunset + timezoneOffset) * 1000}
+          />
           <p>Sunset</p>
         </Widget>
       </div>

@@ -6,3 +6,8 @@
   margin: 0.3rem;
   padding: 0.2.rem;
 }
+
+.twenty-four-hour-forecast-container img {
+  width: 30%;
+  margin: 0.2rem;
+}
