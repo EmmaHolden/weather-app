@@ -26,7 +26,7 @@ const CurrentWeather = () => {
     return <div>Loading...</div>;
   }
 
-  const classes = classNames("current-weather-container", "main-container", {
+  const classes = classNames("current-weather-window", {
     thunderstorm: currentWeather.main === "Thunderstorm",
     rain: ["Rain", "Drizzle"].includes(currentWeather.main),
     clear: currentWeather.main === "Clear",
@@ -36,33 +36,13 @@ const CurrentWeather = () => {
   });
 
   return (
-    <div className={classes}>
+    <div className="current-weather-container main-container">
       <h2 className="no-margin">{currentWeather.cityName}</h2>
       <p>{currentDate}</p>
-      <div className="current-weather-window">
+      <div className={classes}>
         <p>{currentWeather.description}</p>
-        <img
-          src={`https://openweathermap.org/img/wn/${currentWeather.icon}@2x.png`}
-        />
-
+        <img src={`../images/${currentWeather.icon}.png`} />
         <p className="current-temperature">{currentWeather.temperature}°C</p>
-      </div>
-      <div className="current-weather-items-container">
-        <div className="current-weather-item frosted-item">
-          <img className="weather-icon" src="../images/thermometer.png" />
-          <p>{currentWeather.feelsLike}°C</p>
-          <p>Feels</p>
-        </div>
-        <div className="current-weather-item frosted-item">
-          <img className="weather-icon" src="../images/humidity.png" />
-          <p>{currentWeather.humidity}%</p>
-          <p>Humidity</p>
-        </div>
-        <div className="current-weather-item frosted-item">
-          <img className="weather-icon" src="../images/windSpeed.png" />
-          <p>{currentWeather.windSpeed}m/s</p>
-          <p>Wind</p>
-        </div>
       </div>
     </div>
   );

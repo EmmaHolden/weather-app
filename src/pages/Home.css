@@ -8,16 +8,17 @@
 
 .main-container {
   border-radius: 12px;
-  background-color: var(--yellow);
-  border: solid 0.3vw var(--orange);
-  padding: 0.2rem;
+  background-color: var(--cardBackground);
+  border: solid 0.1vw var(--cardBorder);
+  color: var(--text);
+  padding: 0.4rem;
   margin: 0.4rem;
 }
 
 .frosted-item {
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.37);
+  background: var(--frostedItems);
+  box-shadow: 0 4px 4px rgba(30, 30, 130, 0.3);
 }
 
 .frosted-item p {
@@ -31,5 +32,11 @@
   .horizontal-home-container {
     display: flex;
     justify-content: space-between;
+  }
+
+  .current-weather-home-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
   }
 }

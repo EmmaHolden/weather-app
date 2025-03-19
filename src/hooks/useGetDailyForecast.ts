@@ -3,7 +3,7 @@ import { useGetForecast } from "./useGetForecast";
 export const useGetDailyForecast = (city: string) => {
   const { data, error, isPending } = useGetForecast(city);
 
-  const dailyForecast: {
+  let dailyForecast: {
     date: string;
     low: number;
     high: number;
@@ -13,15 +13,9 @@ export const useGetDailyForecast = (city: string) => {
   if (!data?.list) return { dailyForecast, error, isPending };
 
   for (let timestamp of data.list) {
-    const todayDate = new Date().toLocaleDateString("en-GB", {
-      weekday: "short",
-    });
     let date = new Date(timestamp.dt_txt).toLocaleDateString("en-GB", {
       weekday: "short",
     });
-    if (date === todayDate) {
-      continue;
-    }
     const time = timestamp.dt_txt.split(" ")[1];
     const currentTemp = timestamp.main.temp;
     const currentIcon = timestamp.weather[0].icon;
@@ -42,6 +36,10 @@ export const useGetDailyForecast = (city: string) => {
         dateInArray.icon = currentIcon;
       }
     }
+  }
+
+  if (dailyForecast.length > 5) {
+    dailyForecast = dailyForecast.slice(1);
   }
 
   return { dailyForecast, error, isPending };

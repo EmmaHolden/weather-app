@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 0.3;
+  flex: 0.5;
 }
 
 .current-weather-container p {
@@ -18,58 +18,49 @@
 .current-weather-window {
   border-radius: 50%;
   aspect-ratio: 1 / 1;
-  padding: 0.3rem;
-  background: rgba(255, 255, 255, 0.25);
+  padding: 2.5rem;
+  background: var(--frostedItems);
+  border: none;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.current-weather-items-container {
-  display: flex;
-  justify-content: center;
-  width: 90%;
-  margin: 0.3rem;
+.current-weather-window:hover p,
+.current-weather-window:hover img {
+  opacity: 0;
 }
 
-.current-weather-item {
-  min-width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0.3rem;
-  padding: 0.3rem;
+.clear:hover {
+  background: url("../images/clear.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.current-weather-item img {
-  margin: 3%;
-  width: 20%;
+.thunderstorm:hover {
+  background: url("../images/thunderstorm.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.clear {
-  background-color: var(--yellow);
-  border: solid 0.3vw var(--orange);
+.rain:hover {
+  background: url("../images/rain.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.thunderstorm {
-  background-color: var(--purple);
-  border: solid 0.3vw var(--darkPurple);
-  color: white;
+.snow:hover {
+  background: url("../images/snow.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.rain {
-  background-color: var(--blue);
-  border: solid 0.3vw var(--mediumBlue);
+.clouds:hover {
+  background: url("../images/clouds.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.snow {
-  background-color: var(--white);
-  border: solid 0.3vw var(--purple);
-}
-
-.clouds {
-  background: var(--palePink);
-  border: solid 0.3vw var(--pink);
-}
-
-.atmosphere {
-  background: var(--brightGreen);
-  border: solid 0.3vw var(--mediumBlue);
+.atmosphere:hover {
+  background: url("../images/atmosphere.jpg");
+  background-size: cover;
+  background-position: center;
 }

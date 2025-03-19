@@ -1,4 +1,9 @@
 :root {
+  --background: #e3f2fd;
+  --cardBackground: #bbdefb;
+  --cardBorder: #78a0cf;
+  --frostedItems: rgba(227, 242, 253, 0.8);
+  --text: #472b29;
   --white: #f0edee;
   --blue: #bbdefb;
   --paleBlue: #e3f2fd;
@@ -27,8 +32,8 @@
 }
 
 body {
-  background-color: var(--paleBlue);
-  font-family: "Andale Mono", "Monaco", monospace;
+  background-color: var(--background);
+  font-family: "Poppins", "Quicksand", sans-serif;
 }
 
 .no-margin {
