@@ -29,9 +29,7 @@ const DailyForecast = () => {
             <div key={index} className="five-day-forecast-item frosted-item">
               <p>{day.date}</p>
               <div className="five-day-forecast-image-container">
-                <img
-                  src={`https://openweathermap.org/img/wn/${day.icon}@2x.png`}
-                />
+                <img src={`../images/${day.icon}.png`} />
               </div>
               <div className="high-low-container">
                 <p>H:{day.high}°C</p>

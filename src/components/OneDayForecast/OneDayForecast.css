@@ -6,9 +6,3 @@
   margin: 0.3rem;
   padding: 0.2.rem;
 }
-
-.twenty-four-hour-forecast-items-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}

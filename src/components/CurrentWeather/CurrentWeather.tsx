@@ -41,10 +41,7 @@ const CurrentWeather = () => {
       <p>{currentDate}</p>
       <div className={classes}>
         <p>{currentWeather.description}</p>
-        <img
-          src={`https://openweathermap.org/img/wn/${currentWeather.icon}@2x.png`}
-        />
-
+        <img src={`../images/${currentWeather.icon}.png`} />
         <p className="current-temperature">{currentWeather.temperature}°C</p>
       </div>
     </div>

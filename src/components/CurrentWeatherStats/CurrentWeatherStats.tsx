@@ -43,34 +43,34 @@ const CurrentWeatherStats = () => {
       <h2 className="no-margin">Current Conditions</h2>
       <div className="current-weather-items-container">
         <Widget>
-          <img src="../images/thermometer.png" />
+          <img src="../images/condition-icons/thermometer.png" />
           <p>{currentWeather.feelsLike}°C</p>
           <p>Feels like</p>
         </Widget>
         <Widget>
-          <img src="../images/humidity.png" />
+          <img src="../images/condition-icons/humidity.png" />
           <p>{currentWeather.humidity}%</p>
           <p>Humidity</p>
         </Widget>
         <Widget>
-          <img src="../images/windSpeed.png" />
+          <img src="../images/condition-icons/windSpeed.png" />
           <p>{currentWeather.windSpeed}m/s</p>
           <p>Wind Speed</p>
         </Widget>
       </div>
       <div className="current-weather-items-container">
         <Widget>
-          <img src="../images/gauge.png" />
+          <img src="../images/condition-icons/pressure.png" />
           <p>{currentWeather.pressure} hPa</p>
           <p>Pressure</p>
         </Widget>
         <Widget>
-          <img src="../images/windSpeed.png" />
+          <img src="../images/condition-icons/sunrise.png" />
           <p>{sunriseTime}</p>
           <p>Sunrise</p>
         </Widget>
         <Widget>
-          <img src="../images/thermometer.png" />
+          <img src="../images/condition-icons/sunset.png" />
           <p>{sunsetTime}</p>
           <p>Sunset</p>
         </Widget>

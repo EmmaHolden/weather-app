@@ -12,8 +12,6 @@ const OneDayForecast = () => {
     isPending: isForecastPending,
   } = useGetForecast(currentCity.city);
 
-  console.log(forecastData);
-
   if (error) {
     return <div>Something went wrong...</div>;
   }
@@ -23,7 +21,6 @@ const OneDayForecast = () => {
   }
 
   const nextTwentyFourHours = forecastData.list.slice(0, 8);
-  console.log(nextTwentyFourHours);
 
   return (
     <div className="main-container">
@@ -45,9 +42,7 @@ const OneDayForecast = () => {
               </p>
             </div>
             <div>
-              <img
-                src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
-              />
+              <img src={`../images/${item.weather[0].icon}.png`} />
             </div>
             <p>{Math.round(item.main.temp)}°C</p>
           </Widget>
