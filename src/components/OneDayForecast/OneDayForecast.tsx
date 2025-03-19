@@ -27,7 +27,7 @@ const OneDayForecast = () => {
     <div className="main-container">
       <h2 className="no-margin">24h Forecast</h2>
       <div className="twenty-four-hour-forecast-container">
-        {nextTwentyFourHours.map((item: any, index: any) => (
+        {nextTwentyFourHours.map((item: any, index: number) => (
           <Widget key={index}>
             <WeatherDate variant="day-time" rawDate={item.dt_txt} />
             <img src={`../images/${item.weather[0].icon}.png`} />

@@ -1,5 +1,5 @@
 interface WeatherDateProps {
-  rawDate: any;
+  rawDate: number;
   variant: string;
 }
 const WeatherDate = ({ rawDate, variant }: WeatherDateProps) => {
