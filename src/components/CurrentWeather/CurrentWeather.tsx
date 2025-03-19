@@ -26,7 +26,7 @@ const CurrentWeather = () => {
     return <div>Loading...</div>;
   }
 
-  const classes = classNames("current-weather-container", "main-container", {
+  const classes = classNames("current-weather-window", {
     thunderstorm: currentWeather.main === "Thunderstorm",
     rain: ["Rain", "Drizzle"].includes(currentWeather.main),
     clear: currentWeather.main === "Clear",
@@ -39,7 +39,7 @@ const CurrentWeather = () => {
     <div className="current-weather-container main-container">
       <h2 className="no-margin">{currentWeather.cityName}</h2>
       <p>{currentDate}</p>
-      <div className="current-weather-window">
+      <div className={classes}>
         <p>{currentWeather.description}</p>
         <img
           src={`https://openweathermap.org/img/wn/${currentWeather.icon}@2x.png`}

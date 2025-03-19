@@ -15,16 +15,20 @@
   margin: 0.1rem;
 }
 
-.current-weather-window {
-  border-radius: 50%;
-  aspect-ratio: 1 / 1;
-  padding: 2.5rem;
-  background: rgba(255, 255, 255, 0.8);
+.current-weather-window:hover p,
+.current-weather-window:hover img {
+  opacity: 0;
 }
 
 .clear {
   background-color: var(--yellow);
   border: solid 0.3vw var(--orange);
+}
+
+.clear:hover {
+  background: url("../images/clear.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .thunderstorm {
@@ -33,9 +37,21 @@
   color: white;
 }
 
+.thunderstorm:hover {
+  background: url("../images/thunderstorm.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 .rain {
   background-color: var(--blue);
   border: solid 0.3vw var(--mediumBlue);
+}
+
+.rain:hover {
+  background: url("../images/rain.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .snow {
@@ -43,12 +59,39 @@
   border: solid 0.3vw var(--purple);
 }
 
+.snow:hover {
+  background: url("../images/snow.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 .clouds {
   background: var(--palePink);
   border: solid 0.3vw var(--pink);
 }
 
+.clouds:hover {
+  background: url("../images/clouds.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 .atmosphere {
   background: var(--brightGreen);
   border: solid 0.3vw var(--mediumBlue);
+}
+
+.atmosphere:hover {
+  background: url("../images/clouds.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.current-weather-window {
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
