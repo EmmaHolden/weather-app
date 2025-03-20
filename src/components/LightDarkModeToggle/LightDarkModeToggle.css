@@ -1,0 +1,28 @@
+.light-dark-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.light-dark-toggle-button {
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 16px;
+  width: 50%;
+  cursor: pointer;
+}
+
+.dark-mode .light-dark-toggle-button {
+  background-color: #78a0cf;
+}
+
+.light-mode .light-dark-toggle-button {
+  background-color: #f7c6c7;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.light-dark-toggle-image {
+  width: 30%;
+}

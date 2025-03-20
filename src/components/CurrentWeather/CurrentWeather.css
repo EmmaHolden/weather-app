@@ -10,15 +10,18 @@
   margin: 0.5rem;
 }
 
+.current-weather-container img {
+  margin: 0.5rem;
+}
 .current-temperature {
   font-size: 2.5rem;
-  margin: 0.1rem;
+  margin: 0.5rem;
 }
 
 .current-weather-window {
   border-radius: 50%;
   aspect-ratio: 1 / 1;
-  padding: 2.5rem;
+  padding: 2rem;
   background: var(--frostedItems);
   border: none;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
