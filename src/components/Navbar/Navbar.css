@@ -18,12 +18,19 @@
   color: var(--white);
   border: none;
   border-radius: 16px 16px 0px 0px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
 }
 
-.nav-button:hover {
+.nav-active {
   background-color: var(--paleBlue);
   color: var(--text);
   border: none;
+  border-radius: 16px 16px 0px 0px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
