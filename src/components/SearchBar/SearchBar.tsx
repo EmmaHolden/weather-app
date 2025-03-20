@@ -15,7 +15,7 @@ const SearchBar = () => {
     dispatch(setCurrentCity(inputValue));
   };
   return (
-    <>
+    <div className="search-container">
       <input
         className="searchbar"
         type="text"
@@ -25,7 +25,7 @@ const SearchBar = () => {
       <button className="search-button" onClick={handleSearch}>
         ?
       </button>
-    </>
+    </div>
   );
 };
 

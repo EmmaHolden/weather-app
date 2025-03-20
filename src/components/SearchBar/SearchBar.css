@@ -1,23 +1,25 @@
+.search-container {
+  display: flex;
+  min-width: 40%;
+  margin: 0.2rem;
+}
+
 .searchbar {
   background-color: var(--frostedItems);
   border: solid 0.1vw var(--mediumBlue);
   color: var(--text);
   box-sizing: border-box;
-  border-radius: 12px;
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-  width: 60%;
+  border-radius: 12px 0 0 12px;
+  width: 100%;
 }
 
 .search-button {
   background-color: var(--frostedItems);
   border: solid 0.1vw var(--mediumBlue);
   color: var(--text);
-  border-radius: 12px;
+  border-radius: 0 12px 12px 0;
   aspect-ratio: 1 / 1;
-  border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px;
-  border-right: none;
+  border-left: none;
 }
 
 .searchbar:focus {
