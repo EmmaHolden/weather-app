@@ -1,29 +1,25 @@
 :root {
   --background: #e3f2fd;
+  --white: #f0edee;
+  --paleBlue: #e3f2fd;
+  --darkPurple: #472b29;
+}
+
+.light-mode {
   --cardBackground: #bbdefb;
   --cardBorder: #78a0cf;
   --frostedItems: rgba(227, 242, 253, 0.8);
   --text: #472b29;
-  --navOne: #000428;
-  --navTwo: #004e92;
-  --white: #f0edee;
-  --blue: #bbdefb;
-  --paleBlue: #e3f2fd;
-  --blueGrey: #deecf9;
-  --mediumBlue: #78a0cf;
-  --gold: #a38977;
-  --brightGreen: #80ddd0;
-  --anotherGreen: #baf48a;
-  --yellow: #ffc400;
-  --orange: #f8b37c;
-  --darkOrange: #ff7c3b;
-  --brown: #ab5258;
-  --purple: #888ab9;
-  --darkPurple: #472b29;
-  --palePink: #f9e4ff;
-  --pink: #ffdcf7;
-  --darkPink: #c9b6cf;
-  --grey: #adb8ca;
+  --nav: #004e92;
+  --inverseText: #f0edee;
+}
+.dark-mode {
+  --cardBackground: #004e92;
+  --cardBorder: #1e2a47;
+  --frostedItems: rgba(120, 160, 207, 0.3);
+  --text: #f0edee;
+  --nav: #004e92;
+  --inverseText: #472b29;
 }
 
 #root {

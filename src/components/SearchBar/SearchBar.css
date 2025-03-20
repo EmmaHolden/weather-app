@@ -5,18 +5,17 @@
 }
 
 .searchbar {
-  background-color: var(--frostedItems);
-  border: solid 0.1vw var(--mediumBlue);
-  color: var(--text);
+  background-color: var(--paleBlue);
+  border: solid 0.1vw var(--cardBorder);
+  color: var(--darkPurple);
   box-sizing: border-box;
   border-radius: 12px 0 0 12px;
   width: 100%;
 }
 
 .search-button {
-  background-color: var(--frostedItems);
-  border: solid 0.1vw var(--mediumBlue);
-  color: var(--text);
+  background-color: var(--nav);
+  color: var(--white);
   border-radius: 0 12px 12px 0;
   aspect-ratio: 1 / 1;
   border-left: none;
