@@ -3,6 +3,7 @@
   --white: #f0edee;
   --paleBlue: #e3f2fd;
   --darkPurple: #472b29;
+  --nav: #004e92;
 }
 
 .light-mode {
@@ -10,16 +11,12 @@
   --cardBorder: #78a0cf;
   --frostedItems: rgba(227, 242, 253, 0.8);
   --text: #472b29;
-  --nav: #004e92;
-  --inverseText: #f0edee;
 }
 .dark-mode {
   --cardBackground: #004e92;
   --cardBorder: #1e2a47;
   --frostedItems: rgba(120, 160, 207, 0.3);
   --text: #f0edee;
-  --nav: #004e92;
-  --inverseText: #472b29;
 }
 
 #root {
