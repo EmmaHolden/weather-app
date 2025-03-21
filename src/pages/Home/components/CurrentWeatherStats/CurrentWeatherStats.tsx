@@ -5,6 +5,8 @@ import Widget from "../../../../components/Widget/Widget";
 import { getHourMinute } from "../../../../utils/dateUtils";
 import WeatherStat from "../../../../components/WeatherStat/WeatherStat";
 import "./CurrentWeatherStats.css";
+import { WeatherStatName } from "../../../../types/global";
+import { ReactNode } from "react";
 
 const CurrentWeatherStats = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -12,58 +14,34 @@ const CurrentWeatherStats = () => {
 
   const timezoneOffset = currentWeather?.timezone;
 
+  const weatherStatsArray: { variant: WeatherStatName; value: ReactNode }[] = [
+    { variant: "feelsLike", value: currentWeather?.feelsLike },
+    { variant: "humidity", value: currentWeather?.humidity },
+    { variant: "windSpeed", value: currentWeather?.windSpeed },
+    { variant: "pressure", value: currentWeather?.pressure },
+    {
+      variant: "sunrise",
+      value: getHourMinute((currentWeather?.sunrise + timezoneOffset) * 1000),
+    },
+    {
+      variant: "sunset",
+      value: getHourMinute((currentWeather?.sunset + timezoneOffset) * 1000),
+    },
+  ];
+
   return (
     <div className="current-stats-container main-container">
       <h2 className="no-margin">Current Conditions</h2>
       <div className="current-stats-items-container">
-        <Widget>
-          <WeatherStat
-            variant="feelsLike"
-            showDescription
-            value={currentWeather?.feelsLike}
-          />
-        </Widget>
-        <Widget>
-          <WeatherStat
-            variant="humidity"
-            showDescription
-            value={currentWeather?.humidity}
-          />
-        </Widget>
-        <Widget>
-          <WeatherStat
-            variant="windSpeed"
-            showDescription
-            value={currentWeather?.windSpeed}
-          />
-        </Widget>
-      </div>
-      <div className="current-stats-items-container">
-        <Widget>
-          <WeatherStat
-            variant="pressure"
-            showDescription
-            value={currentWeather?.pressure}
-          />
-        </Widget>
-        <Widget>
-          <WeatherStat
-            variant="sunrise"
-            showDescription
-            value={getHourMinute(
-              (currentWeather?.sunrise + timezoneOffset) * 1000
-            )}
-          />
-        </Widget>
-        <Widget>
-          <WeatherStat
-            variant="sunset"
-            showDescription
-            value={getHourMinute(
-              (currentWeather?.sunset + timezoneOffset) * 1000
-            )}
-          />
-        </Widget>
+        {weatherStatsArray.map((stat) => (
+          <Widget key={stat.variant}>
+            <WeatherStat
+              variant={stat.variant}
+              value={stat.value}
+              showDescription
+            />
+          </Widget>
+        ))}
       </div>
     </div>
   );

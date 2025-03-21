@@ -18,7 +18,7 @@
   align-items: center;
   text-align: center;
   margin: 0.3rem;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   flex: 1;
 }
 

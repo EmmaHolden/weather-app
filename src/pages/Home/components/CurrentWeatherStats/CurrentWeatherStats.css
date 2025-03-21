@@ -7,8 +7,9 @@
 }
 
 .current-stats-items-container {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.3rem;
   margin: 0.5rem;
   padding: 0.5rem;
 }
