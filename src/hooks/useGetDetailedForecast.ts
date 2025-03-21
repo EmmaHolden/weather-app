@@ -27,9 +27,5 @@ export const useGetDetailedForecast = (city: string) => {
     }
   }
 
-  if (detailedForecast.length > 5) {
-    detailedForecast = detailedForecast.slice(1);
-  }
-
   return { cityName, timezoneOffset, detailedForecast, isPending };
 };
