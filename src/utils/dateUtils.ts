@@ -42,3 +42,15 @@ export const getTodayLongDate = () => {
     day: "numeric",
   });
 };
+
+export const formatLocalTime = (timestamp: number, timezoneOffset: number) => {
+  return new Date((timestamp + timezoneOffset) * 1000).toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+};
+
+export const getLocalHour = (timestamp: number, timezoneOffset: number) => {
+  return new Date((timestamp + timezoneOffset) * 1000).getUTCHours();
+};

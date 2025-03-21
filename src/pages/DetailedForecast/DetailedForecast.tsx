@@ -6,9 +6,8 @@ import ForecastItem from "./components/ForecastItem";
 
 const DetailedForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
-  const { cityName, detailedForecast, isPending } = useGetDetailedForecast(
-    currentCity.city
-  );
+  const { cityName, timezoneOffset, detailedForecast, isPending } =
+    useGetDetailedForecast(currentCity.city);
 
   if (isPending) {
     return <p>Loading...</p>;
@@ -20,7 +19,11 @@ const DetailedForecast = () => {
       <h1>Detailed Forecast for {cityName}</h1>
       {detailedForecast.map((day, index) => (
         <div key={index}>
-          <ForecastItem date={day.date} data={day.data} />
+          <ForecastItem
+            date={day.date}
+            data={day.data}
+            timezoneOffset={timezoneOffset || 0}
+          />
         </div>
       ))}
     </div>
