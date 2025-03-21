@@ -12,6 +12,15 @@ export type WeatherStatName =
   | "sunrise"
   | "sunset";
 
+export type WeatherCategory =
+  | "Thunderstorm"
+  | "Rain"
+  | "Drizzle"
+  | "Clear"
+  | "Snow"
+  | "Clouds"
+  | "Atmosphere";
+
 export type WeatherStatDetail = {
   description: string;
   imagePath: string;
