@@ -15,6 +15,7 @@ const OneDayForecast = () => {
     return <div>Loading...</div>;
   }
 
+  const timezoneOffset = forecastData.city.timezone;
   const nextTwentyFourHours = forecastData.list.slice(0, 8);
 
   return (
@@ -23,7 +24,7 @@ const OneDayForecast = () => {
       <div className="twenty-four-hour-forecast-container">
         {nextTwentyFourHours.map((item: any, index: number) => (
           <Widget key={index}>
-            <p>{getDayTime(item.dt_txt)}</p>
+            <p>{getDayTime((item.dt + timezoneOffset) * 1000)}</p>
             <img src={`../images/${item.weather[0].icon}.png`} />
             <p>{Math.round(item.main.temp)}°C</p>
           </Widget>

@@ -1,4 +1,4 @@
-import { getShortDay } from "../utils/dateUtils";
+import { getLocalHour, getShortDay } from "../utils/dateUtils";
 import { useGetForecast } from "./useGetForecast";
 
 export const useGetFiveDayForecast = (city: string) => {
@@ -13,9 +13,11 @@ export const useGetFiveDayForecast = (city: string) => {
 
   if (!data?.list) return { fiveDayForecast, isPending };
 
+  const timezoneOffset = data.city.timezone;
+
   for (let timestamp of data.list) {
-    let date = getShortDay(timestamp.dt_txt);
-    const time = timestamp.dt_txt.split(" ")[1];
+    let date = getShortDay((timestamp.dt + timezoneOffset) * 1000);
+    const localHour = getLocalHour(timestamp.dt, timezoneOffset);
     const currentTemp = timestamp.main.temp;
     const currentIcon = timestamp.weather[0].icon;
 
@@ -31,7 +33,7 @@ export const useGetFiveDayForecast = (city: string) => {
     } else {
       dateInArray.low = Math.round(Math.min(dateInArray.low, currentTemp));
       dateInArray.high = Math.round(Math.max(dateInArray.high, currentTemp));
-      if (time === "12:00:00") {
+      if ([11, 12, 13].includes(localHour)) {
         dateInArray.icon = currentIcon;
       }
     }

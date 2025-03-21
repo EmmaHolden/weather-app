@@ -1,16 +1,21 @@
 import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
-import { getTodayLongDate } from "../../utils/dateUtils";
+import { getLongDate } from "../../utils/dateUtils";
 import WeatherTempWindow from "../WeatherTempWindow/WeatherTempWindow";
 import "./CurrentWeather.css";
 import classNames from "classnames";
 
 const CurrentWeather = () => {
-  const currentDate = getTodayLongDate();
   const currentCity = useSelector((state: RootState) => state.currentCity);
   const { data: currentWeather, isPending: isWeatherPending } =
     useGetCurrentWeather(currentCity.city);
+
+  const timezoneOffset: number = currentWeather?.timezone;
+
+  const currentDate: string = getLongDate(
+    (currentWeather?.date + timezoneOffset) * 1000
+  );
 
   if (isWeatherPending || !currentWeather) {
     return <div>Loading...</div>;

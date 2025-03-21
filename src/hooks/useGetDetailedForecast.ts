@@ -10,8 +10,10 @@ export const useGetDetailedForecast = (city: string) => {
 
   let cityName: string = data.city.name;
 
+  const timezoneOffset: number = data.city.timezone;
+
   for (let timestamp of data.list) {
-    let date = getLongDate(timestamp.dt_txt);
+    let date = getLongDate((timestamp.dt + timezoneOffset) * 1000);
 
     let dateInArray = detailedForecast.find((day) => day.date === date);
 
@@ -29,5 +31,5 @@ export const useGetDetailedForecast = (city: string) => {
     detailedForecast = detailedForecast.slice(1);
   }
 
-  return { cityName, detailedForecast, isPending };
+  return { cityName, timezoneOffset, detailedForecast, isPending };
 };

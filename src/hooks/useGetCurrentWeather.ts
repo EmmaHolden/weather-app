@@ -11,6 +11,7 @@ export const useGetCurrentWeather = (city: string) => {
     queryKey: ["current-weather", city],
     queryFn: () => getCurrentWeather(city),
     select: (data) => ({
+      date: data.dt,
       cityName: data.name,
       main: data.weather[0].main,
       description: data.weather[0].description,
