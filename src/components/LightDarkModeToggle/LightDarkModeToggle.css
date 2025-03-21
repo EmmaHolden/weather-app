@@ -12,11 +12,11 @@
 }
 
 .dark-mode .light-dark-toggle-button {
-  background-color: #78a0cf;
+  background-color: var(--darkModeToggle);
 }
 
 .light-mode .light-dark-toggle-button {
-  background-color: #f7c6c7;
+  background-color: var(--lightModeToggle);
 }
 
 .hidden {
