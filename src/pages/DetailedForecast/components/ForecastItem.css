@@ -7,3 +7,11 @@
 .forecast-condition-container img {
   width: 20%;
 }
+
+.daily-forecast-container {
+  display: flex;
+  max-width: 100%;
+  flex: 1;
+  overflow-x: auto;
+  margin: 0.5rem;
+}

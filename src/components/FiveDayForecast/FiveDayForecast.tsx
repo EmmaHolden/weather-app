@@ -1,14 +1,13 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { useGetDailyForecast } from "../../hooks/useGetDailyForecast";
-import "./DailyForecast.css";
+import { useGetFiveDayForecast } from "../../hooks/useGetFiveDayForecast";
+import "./FiveDayForecast.css";
 
-const DailyForecast = () => {
+const FiveDayForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
 
-  const { dailyForecast, isPending: isForecastPending } = useGetDailyForecast(
-    currentCity.city
-  );
+  const { fiveDayForecast, isPending: isForecastPending } =
+    useGetFiveDayForecast(currentCity.city);
 
   if (isForecastPending) {
     return <div>Loading...</div>;
@@ -18,7 +17,7 @@ const DailyForecast = () => {
     <div className="five-day-forecast-container main-container">
       <h2 className="no-margin">5 day forecast</h2>
       <div className="five-day-forecast-items-container">
-        {dailyForecast.map((day, index) => {
+        {fiveDayForecast.map((day, index) => {
           return (
             <div key={index} className="five-day-forecast-item frosted-item">
               <p>{day.date}</p>
@@ -37,4 +36,4 @@ const DailyForecast = () => {
   );
 };
 
-export default DailyForecast;
+export default FiveDayForecast;

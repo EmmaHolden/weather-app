@@ -11,7 +11,7 @@ const ForecastItem = ({ date, data }: ForecastItemProps) => {
   return (
     <div className="main-container">
       <h2>{date}</h2>
-      <div className="twenty-four-hour-forecast-container">
+      <div className="daily-forecast-container">
         {data.map((timestamp) => (
           <Widget key={timestamp.dt_txt}>
             <p>{getHourMinute(timestamp.dt_txt)}</p>
