@@ -1,4 +1,5 @@
 import WeatherStat from "../../../components/WeatherStat/WeatherStat";
+import WeatherTempWindow from "../../../components/WeatherTempWindow/WeatherTempWindow";
 import Widget from "../../../components/Widget/Widget";
 import { getHourMinute } from "../../../utils/dateUtils";
 import "./ForecastItem.css";
@@ -15,9 +16,11 @@ const ForecastItem = ({ date, data }: ForecastItemProps) => {
         {data.map((timestamp) => (
           <Widget key={timestamp.dt_txt}>
             <p>{getHourMinute(timestamp.dt_txt)}</p>
-            <img src={`../images/${timestamp.weather[0].icon}.png`} />
-            <p>{timestamp.weather[0].description}</p>
-            <p>{Math.round(timestamp.main.temp)}°C</p>
+            <WeatherTempWindow
+              weatherDescription={timestamp.weather[0].description}
+              weatherIcon={timestamp.weather[0].icon}
+              weatherTemp={Math.round(timestamp.main.temp)}
+            />
             <div className="forecast-stat-container">
               <WeatherStat variant="pressure" value={timestamp.main.pressure} />
             </div>
