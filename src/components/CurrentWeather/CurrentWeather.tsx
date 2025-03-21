@@ -1,7 +1,7 @@
 import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
-import { getLongDate } from "../../utils/dateUtils";
+import { formatLocalTime, getLongDate } from "../../utils/dateUtils";
 import WeatherTempWindow from "../WeatherTempWindow/WeatherTempWindow";
 import "./CurrentWeather.css";
 import classNames from "classnames";
@@ -15,6 +15,10 @@ const CurrentWeather = () => {
 
   const currentDate: string = getLongDate(
     (currentWeather?.date + timezoneOffset) * 1000
+  );
+
+  const currentTime: string = formatLocalTime(
+    new Date(Date.now() + timezoneOffset * 1000)
   );
 
   if (isWeatherPending || !currentWeather) {
@@ -33,7 +37,8 @@ const CurrentWeather = () => {
   return (
     <div className="current-weather-container main-container">
       <h2 className="no-margin">{currentWeather.cityName}</h2>
-      <p>{currentDate}</p>
+      <p className="no-margin">{currentDate}</p>
+      <p className="no-margin">{currentTime}</p>
       <div className={classes}>
         <WeatherTempWindow
           weatherDescription={currentWeather.description}

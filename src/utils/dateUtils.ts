@@ -43,8 +43,18 @@ export const getTodayLongDate = () => {
   });
 };
 
-export const formatLocalTime = (timestamp: number, timezoneOffset: number) => {
-  return new Date((timestamp + timezoneOffset) * 1000).toLocaleTimeString([], {
+export const getTodayTime = () => {
+  return (
+    new Date().toLocaleTimeString("en-gb"),
+    {
+      hour: "2-digit",
+      minute: "2-digit",
+    }
+  );
+};
+
+export const formatLocalTime = (date: Date) => {
+  return date.toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
     hour12: true,
