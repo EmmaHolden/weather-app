@@ -1,3 +1,4 @@
+import WeatherCondition from "../../../components/WeatherConditions/WeatherCondition";
 import WeatherDate from "../../../components/WeatherDate/WeatherDate";
 import Widget from "../../../components/Widget/Widget";
 import "./ForecastItem.css";
@@ -18,25 +19,22 @@ const ForecastItem = ({ date, data }: ForecastItemProps) => {
             <p>{timestamp.weather[0].description}</p>
             <p>{Math.round(timestamp.main.temp)}°C</p>
             <div className="forecast-condition-container">
-              <img
-                style={{ width: 30 }}
-                src="../images/condition-icons/pressure.png"
+              <WeatherCondition
+                variant="pressure"
+                value={timestamp.main.pressure}
               />
-              <p>{timestamp.main.pressure} hPa</p>
             </div>
             <div className="forecast-condition-container">
-              <img
-                style={{ width: 30 }}
-                src="../images/condition-icons/windSpeed.png"
+              <WeatherCondition
+                variant="windSpeed"
+                value={timestamp.wind.speed}
               />
-              <p>{timestamp.wind.speed}m/s</p>
             </div>
             <div className="forecast-condition-container">
-              <img
-                style={{ width: 30 }}
-                src="../images/condition-icons/humidity.png"
+              <WeatherCondition
+                variant="humidity"
+                value={timestamp.main.humidity}
               />
-              <p>{timestamp.main.humidity}%</p>
             </div>
           </Widget>
         ))}

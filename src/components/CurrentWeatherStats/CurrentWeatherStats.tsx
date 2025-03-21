@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import "./CurrentWeatherStats.css";
 import Widget from "../Widget/Widget";
 import WeatherDate from "../WeatherDate/WeatherDate";
+import WeatherCondition from "../WeatherConditions/WeatherCondition";
 
 const CurrentWeatherStats = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -21,26 +22,34 @@ const CurrentWeatherStats = () => {
       <h2 className="no-margin">Current Conditions</h2>
       <div className="current-conditions-items-container">
         <Widget>
-          <img src="../images/condition-icons/thermometer.png" />
-          <p>{currentWeather.feelsLike}°C</p>
-          <p>Feels like</p>
+          <WeatherCondition
+            variant="feelsLike"
+            showDescription
+            value={currentWeather.feelsLike}
+          />
         </Widget>
         <Widget>
-          <img src="../images/condition-icons/humidity.png" />
-          <p>{currentWeather.humidity}%</p>
-          <p>Humidity</p>
+          <WeatherCondition
+            variant="humidity"
+            showDescription
+            value={currentWeather.humidity}
+          />
         </Widget>
         <Widget>
-          <img src="../images/condition-icons/windSpeed.png" />
-          <p>{currentWeather.windSpeed}m/s</p>
-          <p>Wind Speed</p>
+          <WeatherCondition
+            variant="windSpeed"
+            showDescription
+            value={currentWeather.windSpeed}
+          />
         </Widget>
       </div>
       <div className="current-conditions-items-container">
         <Widget>
-          <img src="../images/condition-icons/pressure.png" />
-          <p>{currentWeather.pressure} hPa</p>
-          <p>Pressure</p>
+          <WeatherCondition
+            variant="windSpeed"
+            showDescription
+            value={currentWeather.pressure}
+          />
         </Widget>
         <Widget>
           <img src="../images/condition-icons/sunrise.png" />
