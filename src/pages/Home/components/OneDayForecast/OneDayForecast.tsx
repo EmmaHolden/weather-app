@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { useGetForecast } from "../../hooks/useGetForecast";
+import { RootState } from "../../../../redux/store";
+import { useGetForecast } from "../../../../hooks/useGetForecast";
 import "./OneDayForecast.css";
-import Widget from "../Widget/Widget";
-import { getDayTime } from "../../utils/dateUtils";
+import Widget from "../../../../components/Widget/Widget";
+import { getDayTime } from "../../../../utils/dateUtils";
 
 const OneDayForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);

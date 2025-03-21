@@ -1,8 +1,8 @@
-import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
-import { RootState } from "../../redux/store";
+import { useGetCurrentWeather } from "../../../../hooks/useGetCurrentWeather";
+import { RootState } from "../../../../redux/store";
 import { useSelector } from "react-redux";
-import { formatLocalTime, getLongDate } from "../../utils/dateUtils";
-import WeatherTempWindow from "../WeatherTempWindow/WeatherTempWindow";
+import { formatLocalTime, getLongDate } from "../../../../utils/dateUtils";
+import WeatherTempWindow from "../../../../components/WeatherTempWindow/WeatherTempWindow";
 import "./CurrentWeather.css";
 import classNames from "classnames";
 

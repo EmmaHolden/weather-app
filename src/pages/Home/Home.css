@@ -1,33 +1,3 @@
-.home-container {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 0.4rem;
-  text-align: center;
-}
-
-.main-container {
-  border-radius: 12px;
-  background-color: var(--cardBackground);
-  border: solid 0.1vw var(--cardBorder);
-  color: var(--text);
-  padding: 0.4rem;
-  margin: 0.4rem;
-}
-
-.frosted-item {
-  border-radius: 12px;
-  background: var(--frostedItems);
-  box-shadow: 0 4px 4px rgba(30, 30, 130, 0.3);
-}
-
-.frosted-item p {
-  margin: 0.1rem;
-  white-space: nowrap;
-  text-align: center;
-  width: 100%;
-}
-
 @media (min-width: 769px) {
   .horizontal-home-container {
     display: flex;

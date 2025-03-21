@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { useGetFiveDayForecast } from "../../hooks/useGetFiveDayForecast";
+import { RootState } from "../../../../redux/store";
+import { useGetFiveDayForecast } from "../../../../hooks/useGetFiveDayForecast";
 import "./FiveDayForecast.css";
 
 const FiveDayForecast = () => {

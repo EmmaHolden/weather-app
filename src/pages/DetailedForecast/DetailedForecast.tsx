@@ -15,7 +15,7 @@ const DetailedForecast = () => {
   }
 
   return (
-    <div className="home-container">
+    <div className="page-container">
       <Navbar />
       <h1>Detailed Forecast for {cityName}</h1>
       {detailedForecast.map((day, index) => (

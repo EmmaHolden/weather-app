@@ -1,9 +1,9 @@
-import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
-import { RootState } from "../../redux/store";
+import { useGetCurrentWeather } from "../../../../hooks/useGetCurrentWeather";
+import { RootState } from "../../../../redux/store";
 import { useSelector } from "react-redux";
-import Widget from "../Widget/Widget";
-import { getHourMinute } from "../../utils/dateUtils";
-import WeatherStat from "../WeatherStat/WeatherStat";
+import Widget from "../../../../components/Widget/Widget";
+import { getHourMinute } from "../../../../utils/dateUtils";
+import WeatherStat from "../../../../components/WeatherStat/WeatherStat";
 import "./CurrentWeatherStats.css";
 
 const CurrentWeatherStats = () => {
