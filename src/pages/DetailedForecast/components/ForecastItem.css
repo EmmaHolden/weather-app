@@ -1,7 +1,8 @@
 .forecast-condition-container {
   display: flex;
   align-items: center;
-  width: 100%;
+  min-width: fit-content;
+  max-width: 100%;
 }
 
 .forecast-condition-container img {
@@ -9,9 +10,9 @@
 }
 
 .daily-forecast-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
   max-width: 100%;
-  flex: 1;
   overflow-x: auto;
-  margin: 0.5rem;
+  gap: 0.1rem;
 }

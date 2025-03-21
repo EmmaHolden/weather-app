@@ -27,7 +27,7 @@ const ForecastItem = ({ date, data }: ForecastItemProps) => {
             <div className="forecast-condition-container">
               <WeatherCondition
                 variant="windSpeed"
-                value={timestamp.wind.speed}
+                value={Math.round(timestamp.wind.speed)}
               />
             </div>
             <div className="forecast-condition-container">
