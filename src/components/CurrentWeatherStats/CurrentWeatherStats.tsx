@@ -1,9 +1,10 @@
 import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
-import "./CurrentWeatherStats.css";
 import Widget from "../Widget/Widget";
-import WeatherDate from "../WeatherDate/WeatherDate";
+import { getHourMinute } from "../../utils/dateUtils";
+import WeatherStat from "../WeatherStat/WeatherStat";
+import "./CurrentWeatherStats.css";
 
 const CurrentWeatherStats = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -17,46 +18,56 @@ const CurrentWeatherStats = () => {
   }
 
   return (
-    <div className="current-conditions-container main-container">
+    <div className="current-stats-container main-container">
       <h2 className="no-margin">Current Conditions</h2>
-      <div className="current-conditions-items-container">
+      <div className="current-stats-items-container">
         <Widget>
-          <img src="../images/condition-icons/thermometer.png" />
-          <p>{currentWeather.feelsLike}°C</p>
-          <p>Feels like</p>
+          <WeatherStat
+            variant="feelsLike"
+            showDescription
+            value={currentWeather.feelsLike}
+          />
         </Widget>
         <Widget>
-          <img src="../images/condition-icons/humidity.png" />
-          <p>{currentWeather.humidity}%</p>
-          <p>Humidity</p>
+          <WeatherStat
+            variant="humidity"
+            showDescription
+            value={currentWeather.humidity}
+          />
         </Widget>
         <Widget>
-          <img src="../images/condition-icons/windSpeed.png" />
-          <p>{currentWeather.windSpeed}m/s</p>
-          <p>Wind Speed</p>
+          <WeatherStat
+            variant="windSpeed"
+            showDescription
+            value={currentWeather.windSpeed}
+          />
         </Widget>
       </div>
-      <div className="current-conditions-items-container">
+      <div className="current-stats-items-container">
         <Widget>
-          <img src="../images/condition-icons/pressure.png" />
-          <p>{currentWeather.pressure} hPa</p>
-          <p>Pressure</p>
+          <WeatherStat
+            variant="pressure"
+            showDescription
+            value={currentWeather.pressure}
+          />
         </Widget>
         <Widget>
-          <img src="../images/condition-icons/sunrise.png" />
-          <WeatherDate
-            variant="hour-minute"
-            rawDate={(currentWeather?.sunrise + timezoneOffset) * 1000}
+          <WeatherStat
+            variant="sunrise"
+            showDescription
+            value={getHourMinute(
+              (currentWeather?.sunrise + timezoneOffset) * 1000
+            )}
           />
-          <p>Sunrise</p>
         </Widget>
         <Widget>
-          <img src="../images/condition-icons/sunset.png" />
-          <WeatherDate
-            variant="hour-minute"
-            rawDate={(currentWeather?.sunset + timezoneOffset) * 1000}
+          <WeatherStat
+            variant="sunset"
+            showDescription
+            value={getHourMinute(
+              (currentWeather?.sunset + timezoneOffset) * 1000
+            )}
           />
-          <p>Sunset</p>
         </Widget>
       </div>
     </div>

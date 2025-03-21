@@ -1,5 +1,5 @@
 import CurrentWeather from "../../components/CurrentWeather/CurrentWeather";
-import DailyForecast from "../../components/DailyForecast/DailyForecast";
+import DailyForecast from "../../components/FiveDayForecast/FiveDayForecast";
 import OneDayForecast from "../../components/OneDayForecast/OneDayForecast";
 import CurrentWeatherStats from "../../components/CurrentWeatherStats/CurrentWeatherStats";
 import Navbar from "../../components/Navbar/Navbar";

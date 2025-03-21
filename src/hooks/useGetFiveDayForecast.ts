@@ -1,29 +1,28 @@
+import { getShortDay } from "../utils/dateUtils";
 import { useGetForecast } from "./useGetForecast";
 
-export const useGetDailyForecast = (city: string) => {
+export const useGetFiveDayForecast = (city: string) => {
   const { data, isPending } = useGetForecast(city);
 
-  let dailyForecast: {
+  let fiveDayForecast: {
     date: string;
     low: number;
     high: number;
     icon: string;
   }[] = [];
 
-  if (!data?.list) return { dailyForecast, isPending };
+  if (!data?.list) return { fiveDayForecast, isPending };
 
   for (let timestamp of data.list) {
-    let date = new Date(timestamp.dt_txt).toLocaleDateString("en-GB", {
-      weekday: "short",
-    });
+    let date = getShortDay(timestamp.dt_txt);
     const time = timestamp.dt_txt.split(" ")[1];
     const currentTemp = timestamp.main.temp;
     const currentIcon = timestamp.weather[0].icon;
 
-    let dateInArray = dailyForecast.find((day) => day.date === date);
+    let dateInArray = fiveDayForecast.find((day) => day.date === date);
 
     if (!dateInArray) {
-      dailyForecast.push({
+      fiveDayForecast.push({
         date: date,
         low: Math.round(currentTemp),
         high: Math.round(currentTemp),
@@ -38,9 +37,9 @@ export const useGetDailyForecast = (city: string) => {
     }
   }
 
-  if (dailyForecast.length > 5) {
-    dailyForecast = dailyForecast.slice(1);
+  if (fiveDayForecast.length > 5) {
+    fiveDayForecast = fiveDayForecast.slice(1);
   }
 
-  return { dailyForecast, isPending };
+  return { fiveDayForecast, isPending };
 };

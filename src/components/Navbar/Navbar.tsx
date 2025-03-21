@@ -15,7 +15,7 @@ const Navbar = () => {
           Current Weather
         </NavLink>
         <NavLink
-          to={RoutePath.ServerError}
+          to={RoutePath.DetailedForecast}
           className={({ isActive }) => (isActive ? "nav-active" : "nav-button")}
         >
           Detailed Forecast

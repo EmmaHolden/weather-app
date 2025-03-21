@@ -1,4 +1,4 @@
-.current-conditions-container {
+.current-stats-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +6,7 @@
   flex: 0.5;
 }
 
-.current-conditions-items-container {
+.current-stats-items-container {
   display: flex;
   justify-content: center;
   margin: 0.5rem;

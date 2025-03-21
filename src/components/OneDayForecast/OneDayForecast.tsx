@@ -3,7 +3,7 @@ import { RootState } from "../../redux/store";
 import { useGetForecast } from "../../hooks/useGetForecast";
 import "./OneDayForecast.css";
 import Widget from "../Widget/Widget";
-import WeatherDate from "../WeatherDate/WeatherDate";
+import { getDayTime } from "../../utils/dateUtils";
 
 const OneDayForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -23,7 +23,7 @@ const OneDayForecast = () => {
       <div className="twenty-four-hour-forecast-container">
         {nextTwentyFourHours.map((item: any, index: number) => (
           <Widget key={index}>
-            <WeatherDate variant="day-time" rawDate={item.dt_txt} />
+            <p>{getDayTime(item.dt_txt)}</p>
             <img src={`../images/${item.weather[0].icon}.png`} />
             <p>{Math.round(item.main.temp)}°C</p>
           </Widget>
