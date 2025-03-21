@@ -4,7 +4,7 @@ export enum RoutePath {
   ServerError = "/server-error",
 }
 
-export type WeatherStat =
+export type WeatherStatName =
   | "humidity"
   | "feelsLike"
   | "pressure"
@@ -18,7 +18,7 @@ export type WeatherStatDetail = {
   unit?: string;
 };
 
-export const WeatherStatInfo: Record<WeatherStat, WeatherStatDetail> = {
+export const WeatherStatInfo: Record<WeatherStatName, WeatherStatDetail> = {
   humidity: {
     description: "Humidity",
     imagePath: "../images/condition-icons/humidity.png",

@@ -1,10 +1,10 @@
 import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
-import "./CurrentWeatherStats.css";
 import Widget from "../Widget/Widget";
-import WeatherCondition from "../WeatherConditions/WeatherCondition";
 import { getHourMinute } from "../../utils/dateUtils";
+import WeatherStat from "../WeatherStat/WeatherStat";
+import "./CurrentWeatherStats.css";
 
 const CurrentWeatherStats = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -18,41 +18,41 @@ const CurrentWeatherStats = () => {
   }
 
   return (
-    <div className="current-conditions-container main-container">
+    <div className="current-stats-container main-container">
       <h2 className="no-margin">Current Conditions</h2>
-      <div className="current-conditions-items-container">
+      <div className="current-stats-items-container">
         <Widget>
-          <WeatherCondition
+          <WeatherStat
             variant="feelsLike"
             showDescription
             value={currentWeather.feelsLike}
           />
         </Widget>
         <Widget>
-          <WeatherCondition
+          <WeatherStat
             variant="humidity"
             showDescription
             value={currentWeather.humidity}
           />
         </Widget>
         <Widget>
-          <WeatherCondition
+          <WeatherStat
             variant="windSpeed"
             showDescription
             value={currentWeather.windSpeed}
           />
         </Widget>
       </div>
-      <div className="current-conditions-items-container">
+      <div className="current-stats-items-container">
         <Widget>
-          <WeatherCondition
+          <WeatherStat
             variant="pressure"
             showDescription
             value={currentWeather.pressure}
           />
         </Widget>
         <Widget>
-          <WeatherCondition
+          <WeatherStat
             variant="sunrise"
             showDescription
             value={getHourMinute(
@@ -61,7 +61,7 @@ const CurrentWeatherStats = () => {
           />
         </Widget>
         <Widget>
-          <WeatherCondition
+          <WeatherStat
             variant="sunset"
             showDescription
             value={getHourMinute(

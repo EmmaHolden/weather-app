@@ -1,16 +1,12 @@
 import { ReactNode } from "react";
-import { WeatherStat, WeatherStatInfo } from "../../types/global";
+import { WeatherStatName, WeatherStatInfo } from "../../types/global";
 
-interface WeatherConditionProps {
-  variant: WeatherStat;
+interface WeatherStatProps {
+  variant: WeatherStatName;
   showDescription?: boolean;
   value: number | string | ReactNode;
 }
-const WeatherCondition = ({
-  variant,
-  showDescription,
-  value,
-}: WeatherConditionProps) => {
+const WeatherStat = ({ variant, showDescription, value }: WeatherStatProps) => {
   return (
     <>
       <img src={WeatherStatInfo[variant].imagePath} />
@@ -23,4 +19,4 @@ const WeatherCondition = ({
   );
 };
 
-export default WeatherCondition;
+export default WeatherStat;

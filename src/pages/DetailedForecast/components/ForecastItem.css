@@ -1,11 +1,11 @@
-.forecast-condition-container {
+.forecast-stat-container {
   display: flex;
   align-items: center;
   min-width: fit-content;
   max-width: 100%;
 }
 
-.forecast-condition-container img {
+.forecast-stat-container img {
   width: 20%;
 }
 
