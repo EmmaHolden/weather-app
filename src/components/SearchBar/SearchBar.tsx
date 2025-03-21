@@ -23,7 +23,7 @@ const SearchBar = () => {
         onChange={handleChange}
       ></input>
       <button className="search-button" onClick={handleSearch}>
-        ?
+        <img src="../images/search.png" />
       </button>
     </div>
   );

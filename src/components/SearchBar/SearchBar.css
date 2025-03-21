@@ -14,6 +14,7 @@
 }
 
 .search-button {
+  display: inline-flex;
   background-color: var(--nav);
   color: var(--white);
   border-radius: 0 12px 12px 0;
@@ -27,4 +28,8 @@
 
 .search-button:focus {
   outline: none;
+}
+
+.search-button img {
+  width: 1rem;
 }
