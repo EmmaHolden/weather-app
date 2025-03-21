@@ -13,7 +13,7 @@ export const useGetDetailedForecast = (city: string) => {
   const timezoneOffset: number = data.city.timezone;
 
   for (let timestamp of data.list) {
-    let date = getLongDate((timestamp.dt + timezoneOffset) * 1000);
+    let date = getLongDate(timestamp.dt, timezoneOffset);
 
     let dateInArray = detailedForecast.find((day) => day.date === date);
 

@@ -1,7 +1,7 @@
-import CurrentWeather from "../../components/CurrentWeather/CurrentWeather";
-import DailyForecast from "../../components/FiveDayForecast/FiveDayForecast";
-import OneDayForecast from "../../components/OneDayForecast/OneDayForecast";
-import CurrentWeatherStats from "../../components/CurrentWeatherStats/CurrentWeatherStats";
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
+import DailyForecast from "./components/FiveDayForecast/FiveDayForecast";
+import OneDayForecast from "./components/OneDayForecast/OneDayForecast";
+import CurrentWeatherStats from "./components/CurrentWeatherStats/CurrentWeatherStats";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Home.css";
 import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
@@ -24,7 +24,7 @@ const Home = () => {
   }
 
   return (
-    <div className="home-container">
+    <div className="page-container">
       <Navbar />
       <div className="horizontal-home-container">
         <div className="current-weather-home-container">

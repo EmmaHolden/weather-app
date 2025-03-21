@@ -1,8 +1,11 @@
-export const getDayTime = (rawDate: number) => {
-  const date = new Date(rawDate).toLocaleDateString("en-GB", {
+import { TIMEZONE_OFFSET_MULTIPLIER } from "../types/global";
+
+export const getDayTime = (rawDate: number, offset: number) => {
+  const sum = (rawDate + offset) * TIMEZONE_OFFSET_MULTIPLIER;
+  const date = new Date(sum).toLocaleDateString("en-GB", {
     weekday: "short",
   });
-  const time = new Date(rawDate)
+  const time = new Date(sum)
     .toLocaleTimeString("en-GB", {
       hour: "numeric",
       hour12: true,
@@ -11,46 +14,30 @@ export const getDayTime = (rawDate: number) => {
   return `${date} ${time}`;
 };
 
-export const getHourMinute = (rawDate: number) => {
-  return new Date(rawDate).toLocaleTimeString("en-GB", {
+export const getHourMinute = (rawDate: number, offset: number) => {
+  const sum = (rawDate + offset) * TIMEZONE_OFFSET_MULTIPLIER;
+  return new Date(sum).toLocaleTimeString("en-GB", {
     hour: "numeric",
     minute: "numeric",
     hour12: true,
   });
 };
 
-export const getShortDay = (rawDate: number) => {
-  return new Date(rawDate).toLocaleDateString("en-GB", {
+export const getShortDay = (rawDate: number, offset: number) => {
+  const sum = (rawDate + offset) * TIMEZONE_OFFSET_MULTIPLIER;
+  return new Date(sum).toLocaleDateString("en-GB", {
     weekday: "short",
   });
 };
 
-export const getLongDate = (rawDate: number) => {
-  return new Date(rawDate).toLocaleDateString("en-GB", {
+export const getLongDate = (rawDate: number, offset: number) => {
+  const sum = (rawDate + offset) * TIMEZONE_OFFSET_MULTIPLIER;
+  return new Date(sum).toLocaleDateString("en-GB", {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
   });
-};
-
-export const getTodayLongDate = () => {
-  return new Date().toLocaleDateString("en-GB", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-};
-
-export const getTodayTime = () => {
-  return (
-    new Date().toLocaleTimeString("en-gb"),
-    {
-      hour: "2-digit",
-      minute: "2-digit",
-    }
-  );
 };
 
 export const formatLocalTime = (date: Date) => {
@@ -61,6 +48,8 @@ export const formatLocalTime = (date: Date) => {
   });
 };
 
-export const getLocalHour = (timestamp: number, timezoneOffset: number) => {
-  return new Date((timestamp + timezoneOffset) * 1000).getUTCHours();
+export const getLocalHour = (rawDate: number, offset: number) => {
+  return new Date(
+    (rawDate + offset) * TIMEZONE_OFFSET_MULTIPLIER
+  ).getUTCHours();
 };

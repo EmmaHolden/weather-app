@@ -16,7 +16,7 @@ export const useGetFiveDayForecast = (city: string) => {
   const timezoneOffset = data.city.timezone;
 
   for (let timestamp of data.list) {
-    let date = getShortDay((timestamp.dt + timezoneOffset) * 1000);
+    let date = getShortDay(timestamp.dt, timezoneOffset);
     const localHour = getLocalHour(timestamp.dt, timezoneOffset);
     const currentTemp = timestamp.main.temp;
     const currentIcon = timestamp.weather[0].icon;

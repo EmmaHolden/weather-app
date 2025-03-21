@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { useGetFiveDayForecast } from "../../hooks/useGetFiveDayForecast";
+import { RootState } from "../../../../redux/store";
+import { useGetFiveDayForecast } from "../../../../hooks/useGetFiveDayForecast";
 import "./FiveDayForecast.css";
 
 const FiveDayForecast = () => {
@@ -17,7 +17,7 @@ const FiveDayForecast = () => {
             <div key={index} className="five-day-forecast-item frosted-item">
               <p>{day.date}</p>
               <div className="five-day-forecast-image-container">
-                <img src={`../images/${day.icon}.png`} />
+                <img src={`../images/weather-icons/${day.icon}.png`} />
               </div>
               <div className="high-low-container">
                 <p>H:{day.high}°C</p>

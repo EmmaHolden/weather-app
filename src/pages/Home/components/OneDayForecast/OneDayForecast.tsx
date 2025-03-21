@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { useGetForecast } from "../../hooks/useGetForecast";
+import { RootState } from "../../../../redux/store";
+import { useGetForecast } from "../../../../hooks/useGetForecast";
 import "./OneDayForecast.css";
-import Widget from "../Widget/Widget";
-import { getDayTime } from "../../utils/dateUtils";
+import Widget from "../../../../components/Widget/Widget";
+import { getDayTime } from "../../../../utils/dateUtils";
 
 const OneDayForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -18,8 +18,8 @@ const OneDayForecast = () => {
       <div className="twenty-four-hour-forecast-container">
         {nextTwentyFourHours.map((item: any, index: number) => (
           <Widget key={index}>
-            <p>{getDayTime((item.dt + timezoneOffset) * 1000)}</p>
-            <img src={`../images/${item.weather[0].icon}.png`} />
+            <p>{getDayTime(item.dt, timezoneOffset)}</p>
+            <img src={`../images/weather-icons/${item.weather[0].icon}.png`} />
             <p>{Math.round(item.main.temp)}°C</p>
           </Widget>
         ))}
