@@ -7,13 +7,7 @@ import { getDayTime } from "../../utils/dateUtils";
 
 const OneDayForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
-  const { data: forecastData, isPending: isForecastPending } = useGetForecast(
-    currentCity.city
-  );
-
-  if (isForecastPending) {
-    return <div>Loading...</div>;
-  }
+  const { data: forecastData } = useGetForecast(currentCity.city);
 
   const timezoneOffset = forecastData.city.timezone;
   const nextTwentyFourHours = forecastData.list.slice(0, 8);

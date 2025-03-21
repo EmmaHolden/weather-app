@@ -4,8 +4,25 @@ import OneDayForecast from "../../components/OneDayForecast/OneDayForecast";
 import CurrentWeatherStats from "../../components/CurrentWeatherStats/CurrentWeatherStats";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Home.css";
+import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { useGetFiveDayForecast } from "../../hooks/useGetFiveDayForecast";
+import Loading from "../../components/Loading/Loading";
 
 const Home = () => {
+  const currentCity = useSelector((state: RootState) => state.currentCity);
+  const { isPending: isCurrentWeatherPending } = useGetCurrentWeather(
+    currentCity.city
+  );
+  const { isPending: isFiveDayForecastPending } = useGetFiveDayForecast(
+    currentCity.city
+  );
+
+  if (isCurrentWeatherPending || isFiveDayForecastPending) {
+    return <Loading />;
+  }
+
   return (
     <div className="home-container">
       <Navbar />

@@ -6,12 +6,7 @@ import "./FiveDayForecast.css";
 const FiveDayForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
 
-  const { fiveDayForecast, isPending: isForecastPending } =
-    useGetFiveDayForecast(currentCity.city);
-
-  if (isForecastPending) {
-    return <div>Loading...</div>;
-  }
+  const { fiveDayForecast } = useGetFiveDayForecast(currentCity.city);
 
   return (
     <div className="five-day-forecast-container main-container">

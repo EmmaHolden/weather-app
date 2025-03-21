@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useGetDetailedForecast } from "../../hooks/useGetDetailedForecast";
 import { RootState } from "../../redux/store";
 import ForecastItem from "./components/ForecastItem";
+import Loading from "../../components/Loading/Loading";
 
 const DetailedForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -10,7 +11,7 @@ const DetailedForecast = () => {
     useGetDetailedForecast(currentCity.city);
 
   if (isPending) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (
