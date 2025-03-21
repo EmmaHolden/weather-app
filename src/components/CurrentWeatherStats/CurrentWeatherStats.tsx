@@ -3,8 +3,8 @@ import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 import "./CurrentWeatherStats.css";
 import Widget from "../Widget/Widget";
-import WeatherDate from "../WeatherDate/WeatherDate";
 import WeatherCondition from "../WeatherConditions/WeatherCondition";
+import { getHourMinute } from "../../utils/dateUtils";
 
 const CurrentWeatherStats = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -46,25 +46,23 @@ const CurrentWeatherStats = () => {
       <div className="current-conditions-items-container">
         <Widget>
           <WeatherCondition
-            variant="windSpeed"
+            variant="pressure"
             showDescription
             value={currentWeather.pressure}
           />
         </Widget>
         <Widget>
           <img src="../images/condition-icons/sunrise.png" />
-          <WeatherDate
-            variant="hour-minute"
-            rawDate={(currentWeather?.sunrise + timezoneOffset) * 1000}
-          />
+          <p>
+            {getHourMinute((currentWeather?.sunrise + timezoneOffset) * 1000)}
+          </p>
           <p>Sunrise</p>
         </Widget>
         <Widget>
           <img src="../images/condition-icons/sunset.png" />
-          <WeatherDate
-            variant="hour-minute"
-            rawDate={(currentWeather?.sunset + timezoneOffset) * 1000}
-          />
+          <p>
+            {getHourMinute((currentWeather?.sunset + timezoneOffset) * 1000)}
+          </p>
           <p>Sunset</p>
         </Widget>
       </div>
