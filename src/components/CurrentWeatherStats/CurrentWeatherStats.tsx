@@ -52,18 +52,22 @@ const CurrentWeatherStats = () => {
           />
         </Widget>
         <Widget>
-          <img src="../images/condition-icons/sunrise.png" />
-          <p>
-            {getHourMinute((currentWeather?.sunrise + timezoneOffset) * 1000)}
-          </p>
-          <p>Sunrise</p>
+          <WeatherCondition
+            variant="sunrise"
+            showDescription
+            value={getHourMinute(
+              (currentWeather?.sunrise + timezoneOffset) * 1000
+            )}
+          />
         </Widget>
         <Widget>
-          <img src="../images/condition-icons/sunset.png" />
-          <p>
-            {getHourMinute((currentWeather?.sunset + timezoneOffset) * 1000)}
-          </p>
-          <p>Sunset</p>
+          <WeatherCondition
+            variant="sunset"
+            showDescription
+            value={getHourMinute(
+              (currentWeather?.sunset + timezoneOffset) * 1000
+            )}
+          />
         </Widget>
       </div>
     </div>
