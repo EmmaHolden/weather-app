@@ -1,3 +1,4 @@
+import { getLongDate } from "../utils/dateUtils";
 import { useGetForecast } from "./useGetForecast";
 
 export const useGetDetailedForecast = (city: string) => {
@@ -10,12 +11,7 @@ export const useGetDetailedForecast = (city: string) => {
   let cityName: string = data.city.name;
 
   for (let timestamp of data.list) {
-    let date = new Date(timestamp.dt_txt).toLocaleDateString("en-GB", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+    let date = getLongDate(timestamp.dt_txt);
 
     let dateInArray = detailedForecast.find((day) => day.date === date);
 

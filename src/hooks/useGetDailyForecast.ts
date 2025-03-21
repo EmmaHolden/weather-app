@@ -1,3 +1,4 @@
+import { getShortDay } from "../utils/dateUtils";
 import { useGetForecast } from "./useGetForecast";
 
 export const useGetDailyForecast = (city: string) => {
@@ -13,9 +14,7 @@ export const useGetDailyForecast = (city: string) => {
   if (!data?.list) return { dailyForecast, isPending };
 
   for (let timestamp of data.list) {
-    let date = new Date(timestamp.dt_txt).toLocaleDateString("en-GB", {
-      weekday: "short",
-    });
+    let date = getShortDay(timestamp.dt_txt);
     const time = timestamp.dt_txt.split(" ")[1];
     const currentTemp = timestamp.main.temp;
     const currentIcon = timestamp.weather[0].icon;

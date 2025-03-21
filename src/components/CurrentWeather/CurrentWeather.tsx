@@ -3,14 +3,10 @@ import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 import "./CurrentWeather.css";
 import classNames from "classnames";
+import { getTodayLongDate } from "../../utils/dateUtils";
 
 const CurrentWeather = () => {
-  const currentDate = new Date().toLocaleDateString("en-GB", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const currentDate = getTodayLongDate();
   const currentCity = useSelector((state: RootState) => state.currentCity);
   const { data: currentWeather, isPending: isWeatherPending } =
     useGetCurrentWeather(currentCity.city);
