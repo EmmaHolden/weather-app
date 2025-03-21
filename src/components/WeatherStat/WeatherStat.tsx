@@ -1,10 +1,9 @@
-import { ReactNode } from "react";
 import { WeatherStatName, WeatherStatInfo } from "../../types/global";
 
 interface WeatherStatProps {
   variant: WeatherStatName;
   showDescription?: boolean;
-  value: number | string | ReactNode;
+  value: number | string;
 }
 const WeatherStat = ({ variant, showDescription, value }: WeatherStatProps) => {
   return (

@@ -20,20 +20,16 @@ const CurrentWeather = () => {
     new Date(Date.now() + timezoneOffset * 1000)
   );
 
-  const classes = classNames("current-weather-window", {
-    thunderstorm: currentWeather?.main === "Thunderstorm",
-    rain: ["Rain", "Drizzle"].includes(currentWeather?.main),
-    clear: currentWeather?.main === "Clear",
-    snow: currentWeather?.main === "Snow",
-    clouds: currentWeather?.main === "Clouds",
-    atmosphere: currentWeather?.main === "Atmosphere",
-  });
+  const classes = classNames(
+    "current-weather-window",
+    currentWeather?.main.toLowerCase() || ""
+  );
 
   return (
     <div className="current-weather-container main-container">
       <h2 className="no-margin">{currentWeather?.cityName}</h2>
-      <p className="no-margin">{currentDate}</p>
-      <p className="no-margin">{currentTime}</p>
+      <p>{currentDate}</p>
+      <p>{currentTime}</p>
       <div className={classes}>
         <WeatherTempWindow
           weatherDescription={currentWeather?.description}
