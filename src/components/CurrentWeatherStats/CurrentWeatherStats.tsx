@@ -8,14 +8,9 @@ import "./CurrentWeatherStats.css";
 
 const CurrentWeatherStats = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
-  const { data: currentWeather, isPending: isWeatherPending } =
-    useGetCurrentWeather(currentCity.city);
+  const { data: currentWeather } = useGetCurrentWeather(currentCity.city);
 
   const timezoneOffset = currentWeather?.timezone;
-
-  if (isWeatherPending || !currentWeather) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="current-stats-container main-container">
@@ -25,21 +20,21 @@ const CurrentWeatherStats = () => {
           <WeatherStat
             variant="feelsLike"
             showDescription
-            value={currentWeather.feelsLike}
+            value={currentWeather?.feelsLike}
           />
         </Widget>
         <Widget>
           <WeatherStat
             variant="humidity"
             showDescription
-            value={currentWeather.humidity}
+            value={currentWeather?.humidity}
           />
         </Widget>
         <Widget>
           <WeatherStat
             variant="windSpeed"
             showDescription
-            value={currentWeather.windSpeed}
+            value={currentWeather?.windSpeed}
           />
         </Widget>
       </div>
@@ -48,7 +43,7 @@ const CurrentWeatherStats = () => {
           <WeatherStat
             variant="pressure"
             showDescription
-            value={currentWeather.pressure}
+            value={currentWeather?.pressure}
           />
         </Widget>
         <Widget>
