@@ -4,6 +4,8 @@ export enum RoutePath {
   ServerError = "/server-error",
 }
 
+export const TIMEZONE_OFFSET_MULTIPLIER = 1000;
+
 export type WeatherStatName =
   | "humidity"
   | "feelsLike"

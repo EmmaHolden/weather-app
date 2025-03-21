@@ -21,11 +21,11 @@ const CurrentWeatherStats = () => {
     { variant: "pressure", value: currentWeather?.pressure },
     {
       variant: "sunrise",
-      value: getHourMinute((currentWeather?.sunrise + timezoneOffset) * 1000),
+      value: getHourMinute(currentWeather?.sunrise, timezoneOffset),
     },
     {
       variant: "sunset",
-      value: getHourMinute((currentWeather?.sunset + timezoneOffset) * 1000),
+      value: getHourMinute(currentWeather?.sunset, timezoneOffset),
     },
   ];
 

@@ -5,6 +5,7 @@ import { formatLocalTime, getLongDate } from "../../../../utils/dateUtils";
 import WeatherTempWindow from "../../../../components/WeatherTempWindow/WeatherTempWindow";
 import "./CurrentWeather.css";
 import classNames from "classnames";
+import { TIMEZONE_OFFSET_MULTIPLIER } from "../../../../types/global";
 
 const CurrentWeather = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
@@ -12,12 +13,10 @@ const CurrentWeather = () => {
 
   const timezoneOffset: number = currentWeather?.timezone;
 
-  const currentDate: string = getLongDate(
-    (currentWeather?.date + timezoneOffset) * 1000
-  );
+  const currentDate: string = getLongDate(currentWeather?.date, timezoneOffset);
 
   const currentTime: string = formatLocalTime(
-    new Date(Date.now() + timezoneOffset * 1000)
+    new Date(Date.now() + timezoneOffset * TIMEZONE_OFFSET_MULTIPLIER)
   );
 
   const classes = classNames(

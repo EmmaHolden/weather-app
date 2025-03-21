@@ -16,7 +16,7 @@ const ForecastItem = ({ date, data, timezoneOffset }: ForecastItemProps) => {
       <div className="daily-forecast-container">
         {data.map((timestamp) => (
           <Widget key={timestamp.dt_txt}>
-            <p>{getHourMinute((timestamp.dt + timezoneOffset) * 1000)}</p>
+            <p>{getHourMinute(timestamp.dt, timezoneOffset)}</p>
             <WeatherTempWindow
               weatherDescription={timestamp.weather[0].description}
               weatherIcon={timestamp.weather[0].icon}
