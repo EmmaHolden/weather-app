@@ -13,3 +13,53 @@
 .current-weather-container img {
   margin: 0.5rem;
 }
+
+.current-weather-window {
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  padding: 2rem;
+  background: var(--frostedItems);
+  border: none;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.current-weather-window:hover p,
+.current-weather-window:hover img {
+  opacity: 0;
+}
+
+.clear:hover {
+  background: url("../images/clear.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.thunderstorm:hover {
+  background: url("../images/thunderstorm.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.rain:hover {
+  background: url("../images/rain.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.snow:hover {
+  background: url("../images/snow.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.clouds:hover {
+  background: url("../images/clouds.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.atmosphere:hover {
+  background: url("../images/atmosphere.jpg");
+  background-size: cover;
+  background-position: center;
+}
