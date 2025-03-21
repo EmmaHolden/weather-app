@@ -1,7 +1,7 @@
 .forecast-stat-container {
   display: flex;
   align-items: center;
-  min-width: fit-content;
+  min-width: 100px;
   max-width: 100%;
 }
 

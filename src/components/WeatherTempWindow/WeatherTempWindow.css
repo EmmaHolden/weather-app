@@ -1,0 +1,9 @@
+.current-weather-container .current-temperature {
+  font-size: 2.5rem;
+  margin: 0.5rem;
+}
+
+.daily-forecast-container .current-temperature {
+  font-weight: bolder;
+  margin: 0.5rem;
+}

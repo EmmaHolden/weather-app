@@ -1,9 +1,10 @@
 import { useGetCurrentWeather } from "../../hooks/useGetCurrentWeather";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
+import { getTodayLongDate } from "../../utils/dateUtils";
+import WeatherTempWindow from "../WeatherTempWindow/WeatherTempWindow";
 import "./CurrentWeather.css";
 import classNames from "classnames";
-import { getTodayLongDate } from "../../utils/dateUtils";
 
 const CurrentWeather = () => {
   const currentDate = getTodayLongDate();
@@ -29,9 +30,11 @@ const CurrentWeather = () => {
       <h2 className="no-margin">{currentWeather.cityName}</h2>
       <p>{currentDate}</p>
       <div className={classes}>
-        <p>{currentWeather.description}</p>
-        <img src={`../images/${currentWeather.icon}.png`} />
-        <p className="current-temperature">{currentWeather.temperature}°C</p>
+        <WeatherTempWindow
+          weatherDescription={currentWeather.description}
+          weatherIcon={currentWeather.icon}
+          weatherTemp={currentWeather.temperature}
+        />
       </div>
     </div>
   );
