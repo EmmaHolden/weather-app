@@ -27,7 +27,7 @@ export const useGetCurrentWeather = (city: string) => {
       timezone: data.timezone,
     }),
     enabled: !!city,
-    staleTime: Infinity,
+    staleTime: 3600000,
   });
 
   useEffect(() => {
