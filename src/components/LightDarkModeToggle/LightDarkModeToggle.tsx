@@ -27,6 +27,7 @@ const LightDarkModeToggle = () => {
               : "light-dark-toggle-image"
           }
           src={`../images/light-mode.png`}
+          alt="light mode icon"
         />
         <img
           className={
@@ -35,6 +36,7 @@ const LightDarkModeToggle = () => {
               : "light-dark-toggle-image"
           }
           src={`../images/dark-mode.png`}
+          alt="dark mode icon"
         />
       </button>
     </div>

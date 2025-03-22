@@ -42,7 +42,7 @@ describe("Navbar", () => {
 
   it("should not call the dispatch function when the user input is empty", async () => {
     renderComponentWithProviders(<Navbar />);
-    const submitButton = screen.getByAltText("Submit search");
+    const submitButton = screen.getByAltText("search button icon");
     await userEvent.click(submitButton);
     expect(useDispatch()).not.toHaveBeenCalled();
   });
@@ -50,7 +50,7 @@ describe("Navbar", () => {
   it("should call the dispatch function when the user fills in the input and submits", async () => {
     renderComponentWithProviders(<Navbar />);
     const input = screen.getByPlaceholderText("Search for a city");
-    const submitButton = screen.getByAltText("Submit search");
+    const submitButton = screen.getByAltText("search button icon");
     await userEvent.type(input, "Lisbon");
     await userEvent.click(submitButton);
     expect(useDispatch()).toHaveBeenCalled();

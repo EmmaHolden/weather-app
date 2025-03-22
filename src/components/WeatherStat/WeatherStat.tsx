@@ -9,7 +9,10 @@ interface WeatherStatProps {
 const WeatherStat = ({ variant, showDescription, value }: WeatherStatProps) => {
   return (
     <>
-      <img src={WeatherStatInfo[variant].imagePath} />
+      <img
+        src={WeatherStatInfo[variant].imagePath}
+        alt={`${WeatherStatInfo[variant].description} icon`}
+      />
       <p>
         {value}
         {WeatherStatInfo[variant].unit}

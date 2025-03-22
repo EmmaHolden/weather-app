@@ -6,7 +6,11 @@ const ServerError = () => {
     <div className="error-container">
       <h1 className="no-margin">Something went wrong</h1>
       <a href={RoutePath.Home}>
-        <img className="error-image" src="../images/error.png" />
+        <img
+          className="error-image"
+          src="../images/error.png"
+          alt="A sad cloud to indicate the presence of an error"
+        />
       </a>
       <h2>Click the sad cloud to try to return home</h2>
     </div>

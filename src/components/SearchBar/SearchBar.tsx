@@ -25,7 +25,7 @@ const SearchBar = () => {
         onChange={handleChange}
       ></input>
       <button className="search-button" type="submit">
-        <img src="../images/search.png" alt="Submit search" />
+        <img src="../images/search.png" alt="search button icon" />
       </button>
     </form>
   );
