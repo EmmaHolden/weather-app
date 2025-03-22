@@ -21,10 +21,11 @@ const SearchBar = () => {
         className="searchbar"
         type="text"
         placeholder="Search for a city"
+        required
         onChange={handleChange}
       ></input>
       <button className="search-button" type="submit">
-        <img src="../images/search.png" />
+        <img src="../images/search.png" alt="Submit search" />
       </button>
     </form>
   );
