@@ -62,6 +62,12 @@ Redux and Redux Toolkit has been used to track state across the app. The theme (
 
 The weather information is consumed from the free tier of the OpenWeatherMap API. React query is used to cache data of the current and weather forecasts for the cities searched for. This has been implemented to improve performance and reduce unnecessary repeated API calls.
 
+### Accessibility
+
+To work towards my app being accessible for everyone to use, I have added image alt texts, aria attributes and roles to my elements.
+
+I have added axe tests to test for violations on both pages. I have also used the colour contrast checker.
+
 ## Process
 
 A simple trello board was used to manage and prioritize tasks. With a limited time to complete the project, it was important to focus on the MVP.
