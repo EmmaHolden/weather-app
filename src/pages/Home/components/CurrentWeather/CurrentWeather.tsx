@@ -29,7 +29,7 @@ const CurrentWeather = () => {
       <h2 className="no-margin">{currentWeather?.cityName}</h2>
       <p>{currentDate}</p>
       <p>{currentTime}</p>
-      <div className={classes}>
+      <div data-testid="weather-window" className={classes}>
         <WeatherTempWindow
           weatherDescription={currentWeather?.description}
           weatherIcon={currentWeather?.icon}

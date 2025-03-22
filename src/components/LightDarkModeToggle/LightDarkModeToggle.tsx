@@ -15,7 +15,11 @@ const LightDarkModeToggle = () => {
 
   return (
     <div className="light-dark-button-container">
-      <button className="light-dark-toggle-button" onClick={handleSwitch}>
+      <button
+        data-testid="light-dark"
+        className="light-dark-toggle-button"
+        onClick={handleSwitch}
+      >
         <img
           className={
             theme.theme === "light-mode"
