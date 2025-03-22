@@ -1,0 +1,20 @@
+export const currentWeatherMock = {
+  data: {
+    date: 1628705179,
+    cityName: "London",
+    main: "Clouds",
+    description: "light rain",
+    icon: "04d",
+    temperature: 20,
+    feelsLike: 19,
+    humidity: 80,
+    windSpeed: 5,
+    pressure: 1018,
+    visibility: 10,
+    sunrise: 1628656794,
+    sunset: 1628710298,
+    timezone: 3600,
+  },
+  isLoading: false,
+  isError: false,
+};
