@@ -75,3 +75,5 @@ A very basic figma wireframe was created at the ideation stage. While changes we
 ## Future Improvements
 
 I hope to add additional features in future such as the functionality for users to add places to their favourites, and history of recently searched places to be stored.
+
+My plan is to continue building up my unit and integration tests to get good code coverage and implement these into the pipelines so that they run automatically when changes are committed.
