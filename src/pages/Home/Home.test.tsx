@@ -15,6 +15,8 @@ import { currentWeatherMock } from "../../mocks/currentWeather";
 import { fiveDayMock } from "../../mocks/fiveDayForecast";
 import { forecastMock } from "../../mocks/forecast";
 import { useDispatch } from "react-redux";
+import { axe } from "jest-axe";
+import Home from "./Home";
 
 setUpMocks();
 
@@ -136,5 +138,13 @@ describe("OneDayForecast", () => {
     renderComponentWithProviders(<OneDayForecast />);
     expect(screen.getByText("Sun 12am")).toBeInTheDocument();
     expect(screen.getByText("Sun 9pm")).toBeInTheDocument();
+  });
+});
+
+describe("Home", () => {
+  it("should have no accessibility violations", async () => {
+    const { container } = renderComponentWithProviders(<Home />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });
