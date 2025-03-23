@@ -3,6 +3,7 @@ import { setCurrentCity } from "../../redux/currentCity";
 import { useState } from "react";
 import "./SearchBar.css";
 import { useGetCitySuggestions } from "../../hooks/useGetCitySuggestions";
+import { Suggestion } from "../../types/global";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -10,8 +11,7 @@ const SearchBar = () => {
   const [suggestionsOpen, setSuggestionsOpen] = useState(false);
   const { data: suggestionsData = [] } = useGetCitySuggestions(inputValue);
 
-  const handleSelect = (name: string, lat: number, lon: number) => {
-    setInputValue(name);
+  const handleSelect = (lat: number, lon: number) => {
     setSuggestionsOpen(false);
     dispatch(setCurrentCity({ lat, lon }));
   };
@@ -23,8 +23,17 @@ const SearchBar = () => {
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (suggestionsData.includes(inputValue.toLowerCase())) {
-      dispatch(setCurrentCity(inputValue));
+
+    let suggestionsMatch = suggestionsData.find((suggestion: Suggestion) => {
+      const fullName =
+        `${suggestion.name}, ` +
+        (suggestion.state ? `${suggestion.state}, ` : "") +
+        `${suggestion.country}`;
+      return fullName.toLowerCase() === inputValue.toLowerCase();
+    });
+
+    if (suggestionsMatch) {
+      dispatch(setCurrentCity(suggestionsMatch));
     }
   };
 
@@ -42,22 +51,14 @@ const SearchBar = () => {
       />{" "}
       {suggestionsOpen && suggestionsData.length > 0 ? (
         <ul className="suggestions-list">
-          {suggestionsData.map(
-            (item: {
-              name: string;
-              state: string;
-              country: string;
-              lat: number;
-              lon: number;
-            }) => (
-              <li
-                onClick={() => handleSelect(item.name, item.lat, item.lon)}
-                key={(item.lat, item.lon)}
-              >
-                {item.name}, {item.state && item.state + ", "} {item.country}
-              </li>
-            )
-          )}
+          {suggestionsData.map((item: Suggestion) => (
+            <li
+              onClick={() => handleSelect(item.lat, item.lon)}
+              key={(item.lat, item.lon)}
+            >
+              {item.name}, {item.state && item.state + ", "} {item.country}
+            </li>
+          ))}
         </ul>
       ) : null}
       <button className="search-button" type="submit">

@@ -29,6 +29,14 @@ export type WeatherStatDetail = {
   unit?: string;
 };
 
+export type Suggestion = {
+  name: string;
+  state?: string;
+  country: string;
+  lat: number;
+  lon: number;
+};
+
 export const WeatherStatInfo: Record<WeatherStatName, WeatherStatDetail> = {
   humidity: {
     description: "Humidity",
