@@ -2,28 +2,53 @@ import { useDispatch } from "react-redux";
 import { setCurrentCity } from "../../redux/currentCity";
 import { useState } from "react";
 import "./SearchBar.css";
+import { useGetCitySuggestions } from "../../hooks/useGetCitySuggestions";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
+  const [suggestionsOpen, setSuggestionsOpen] = useState(false);
+  const { data: suggestionsData = [] } = useGetCitySuggestions(inputValue);
+
+  const handleSelect = (item: string) => {
+    setInputValue(item);
+    setSuggestionsOpen(false);
+    dispatch(setCurrentCity(item));
+  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
+    setSuggestionsOpen(true);
   };
 
-  const handleSearch = () => {
-    dispatch(setCurrentCity(inputValue));
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (suggestionsData.includes(inputValue.toLowerCase())) {
+      dispatch(setCurrentCity(inputValue));
+    }
   };
+
   return (
-    <form className="search-container" onSubmit={handleSearch}>
+    <form className="search-container" onSubmit={(e) => handleSearch(e)}>
       <input
         id="city-search"
+        value={inputValue}
         className="searchbar"
         type="text"
         placeholder="Search for a city"
         required
         onChange={handleChange}
-      ></input>
+        autoComplete="off"
+      />{" "}
+      {suggestionsOpen && suggestionsData.length > 0 ? (
+        <ul className="suggestions-list">
+          {suggestionsData.map((item: { name: string; country: string }) => (
+            <li onClick={() => handleSelect(item.name)} key={item.name}>
+              {item.name}, {item.country}
+            </li>
+          ))}
+        </ul>
+      ) : null}
       <button className="search-button" type="submit">
         <img
           src="../images/search.png"
