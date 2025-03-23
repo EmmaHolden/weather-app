@@ -50,13 +50,12 @@ const SearchBar = () => {
         autoComplete="off"
       />{" "}
       {suggestionsOpen && suggestionsData.length > 0 ? (
-        <ul className="suggestions-list">
+        <ul className="suggestions-list" role="listbox">
           {suggestionsData.map((item: Suggestion) => (
-            <li
-              onClick={() => handleSelect(item.lat, item.lon)}
-              key={(item.lat, item.lon)}
-            >
-              {item.name}, {item.state && item.state + ", "} {item.country}
+            <li role="option" key={(item.lat, item.lon)}>
+              <button onClick={() => handleSelect(item.lat, item.lon)}>
+                {item.name}, {item.state && item.state + ", "} {item.country}
+              </button>
             </li>
           ))}
         </ul>
