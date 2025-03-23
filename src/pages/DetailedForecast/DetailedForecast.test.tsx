@@ -18,7 +18,9 @@ vi.mock("../../hooks/useGetDetailedForecast", () => ({
 describe("DetailedForecast", () => {
   it("should render page with mocked store", () => {
     renderComponentWithProviders(<DetailedForecast />);
-    expect(screen.getByText("Detailed Forecast for Doha")).toBeInTheDocument();
+    expect(
+      screen.getByText("Detailed Forecast for Doha, QA")
+    ).toBeInTheDocument();
   });
 
   it("should display 5 days of forecast", () => {

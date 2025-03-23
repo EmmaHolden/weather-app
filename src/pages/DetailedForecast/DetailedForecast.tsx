@@ -7,8 +7,8 @@ import Loading from "../../components/Loading/Loading";
 
 const DetailedForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
-  const { cityName, timezoneOffset, detailedForecast, isPending } =
-    useGetDetailedForecast(currentCity.city);
+  const { cityName, countryCode, timezoneOffset, detailedForecast, isPending } =
+    useGetDetailedForecast(currentCity.lat, currentCity.lon);
 
   if (isPending) {
     return <Loading />;
@@ -17,7 +17,9 @@ const DetailedForecast = () => {
   return (
     <div className="page-container">
       <Navbar />
-      <h1>Detailed Forecast for {cityName}</h1>
+      <h1>
+        Detailed Forecast for {cityName}, {countryCode}
+      </h1>
       {detailedForecast.map((day, index) => (
         <div key={index}>
           <ForecastItem

@@ -30,7 +30,7 @@ My weather app SPA has been designed with a cute and cartoony pastel palette. A 
 
 ### Home Page
 
-The homepage provides details about the current weather in the selected city, as well as a 24 hour and 5 day basic forecast. Hovering over the circular window on the home page displays a weather image according to the current weather.
+The homepage provides details about the current weather in the selected city, as well as a 24 hour and 5 day basic forecast. Hovering over the circular window on the home page displays a weather image according to the current weather e.g. cloudy, thunderstorms etc.
 
 ![home page in light mode](./public/images/readme/image.png)
 
@@ -60,7 +60,15 @@ Redux and Redux Toolkit has been used to track state across the app. The theme (
 
 ### Performance
 
-The weather information is consumed from the free tier of the OpenWeatherMap API. React query is used to cache data of the current and weather forecasts for the cities searched for. This has been implemented to improve performance and reduce unnecessary repeated API calls.
+The weather information is consumed from the free tier of the OpenWeatherMap API using both the current weather and five day forecast endpoints.
+
+The OpenWeatherMap Geocode API returns city suggestions when the user types so the user can choose from a list of cities. Only when a valid city from the list has been chosen will the call to the weather/forecast endpoints be made. This reduces redundant calls containing invalid city names.
+
+This also minimises the issue of the user inputting a city then getting the weather for a city with the same name in another part of the world (e.g. Birmingham, Uk and Birmingham, Alabama). The user can clearly see the city, state and country name when making a selection, and the weather/forecast endpoints are now called using the latitude and longitude instead of just the city name, ensuring better accuracy. Furthermore, searching by city name has been deprecated on the OpenWeatherMap API so switching to this method now ensures support with future updates.
+
+It is, of course, important to consider the large number of API calls being made to the geocode endpoint when the suggestions are being generated. Consequently, the endpoint is only called when the input is at least 3 characters long.
+
+React query is used to cache data of the current and weather forecasts for the cities searched for. This has been implemented to improve performance and reduce unnecessary repeated API calls. The location is added to the query key, so information is cached for each city searched for. The staletime is currently 1 hour. This seemed reasonable to avoid excessive calls while keeping the 3-hourly forecast reasonably up to date.
 
 ### Accessibility
 
@@ -80,6 +88,21 @@ A very basic figma wireframe was created at the ideation stage. While changes we
 
 ## Future Improvements
 
-I hope to add additional features in future such as the functionality for users to add places to their favourites, and history of recently searched places to be stored.
+I hope to add additional features in future such as the functionality for users to add places to their favourites, and history of recently searched places to be stored. I would also like to add a 'use my location' feature so the user can get the weather for the location they currently reside in.
 
-My plan is to continue building up my unit and integration tests to get good code coverage and implement these into the pipelines so that they run automatically when changes are committed.
+My plan is to continue building up my unit and integration tests to get good code coverage and implement these into the pipelines so that they run automatically when changes are committed. I would also like to develop some end to end testing.
+
+## Attributions
+
+My assets were obtained from the following creators
+
+<a href="https://www.flaticon.com/free-icons/humidity" title="humidity icons">Humidity icons created by Freepik - Flaticon</a> |
+<a href="https://www.flaticon.com/free-icons/wind" title="wind icons">Wind icons created by Iconic Panda - Flaticon</a> |
+<a href="https://www.flaticon.com/free-icons/thermometer" title="thermometer icons">Thermometer icons created by jocularityart - Flaticon</a> |
+<a href="https://www.flaticon.com/free-icons/barometer" title="barometer icons">Barometer icons created by Good Ware - Flaticon</a> |
+<a href="https://www.flaticon.com/free-icons/sunset" title="sunset icons">Sunset icons created by Freepik - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/magnifying-glass" title="magnifying glass icons">Magnifying glass icons created by Muhammad_Usman - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Sun icons created by Freepik - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/moon" title="moon icons">Moon icons created by Freepik - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/cute" title="cute icons">Cute icons created by Adorableninana - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/cute" title="cute icons">Cute icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/moon" title="moon icons">Moon icons created by Freepik - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/cloudy" title="cloudy icons">Cloudy icons created by Freepik - Flaticon</a> |
+<a href="https://www.flaticon.com/free-icons/astronomy" title="astronomy icons">Astronomy icons created by Freepik - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/cloud" title="cloud icons">Cloud icons created by Freepik - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/rain" title="rain icons">Rain icons created by Freepik - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/lightning-bolt" title="lightning bolt icons">Lightning bolt icons created by Freepik - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/storm" title="storm icons">Storm icons created by Freepik - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/snowy" title="snowy icons">Snowy icons created by Freepik - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/winter" title="winter icons">Winter icons created by Freepik - Flaticon</a>
+
+<a href="https://www.flaticon.com/free-icons/fog" title="fog icons">Fog icons created by photo3idea_studio - Flaticon</a> | <a href="https://www.flaticon.com/free-icons/foggy" title="foggy icons">Foggy icons created by surang - Flaticon</a> | <a href="https://www.vecteezy.com/free-vector/weather-background">Weather Background Vectors by Vecteezy</a>

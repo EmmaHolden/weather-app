@@ -1,14 +1,16 @@
 import { getLongDate } from "../utils/dateUtils";
 import { useGetForecast } from "./useGetForecast";
 
-export const useGetDetailedForecast = (city: string) => {
-  const { data, isPending } = useGetForecast(city);
+export const useGetDetailedForecast = (lat: number, lon: number) => {
+  const { data, isPending } = useGetForecast(lat, lon);
 
   let detailedForecast: { date: string; data: any }[] = [];
 
   if (!data?.list) return { detailedForecast, isPending };
 
   let cityName: string = data.city.name;
+
+  let countryCode: string = data.city.country;
 
   const timezoneOffset: number = data.city.timezone;
 
@@ -27,5 +29,5 @@ export const useGetDetailedForecast = (city: string) => {
     }
   }
 
-  return { cityName, timezoneOffset, detailedForecast, isPending };
+  return { cityName, countryCode, timezoneOffset, detailedForecast, isPending };
 };

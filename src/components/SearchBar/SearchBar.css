@@ -2,6 +2,7 @@
   display: flex;
   min-width: 40%;
   margin: 0.2rem;
+  position: relative;
 }
 
 .searchbar {
@@ -24,4 +25,40 @@
 
 .search-button img {
   width: 1rem;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  color: var(--darkPurple);
+  border: 0.1vw solid var(--white);
+  border-radius: 12px;
+  overflow-y: auto;
+  z-index: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.suggestions-list button {
+  padding: 0.3rem;
+  cursor: pointer;
+  border: 0.1vw solid var(--white);
+  background-color: var(--dropdown);
+  color: var(--white);
+  border-radius: 4px;
+  width: 100%;
+  margin: 0;
+}
+
+.suggestions-list button:hover {
+  background-color: var(--background);
+  color: var(--dropdown);
+}
+
+.suggestions-list button:focus {
+  background-color: var(--background);
+  color: var(--dropdown);
 }

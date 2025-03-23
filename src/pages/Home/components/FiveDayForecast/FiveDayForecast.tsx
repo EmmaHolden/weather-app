@@ -6,7 +6,10 @@ import "./FiveDayForecast.css";
 const FiveDayForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
 
-  const { fiveDayForecast } = useGetFiveDayForecast(currentCity.city);
+  const { fiveDayForecast } = useGetFiveDayForecast(
+    currentCity.lat,
+    currentCity.lon
+  );
 
   return (
     <div className="five-day-forecast-container main-container">

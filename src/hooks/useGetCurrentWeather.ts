@@ -4,15 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { RoutePath } from "../types/global";
 import { useEffect } from "react";
 
-export const useGetCurrentWeather = (city: string) => {
+export const useGetCurrentWeather = (lat: number, lon: number) => {
   const navigate = useNavigate();
 
   const query = useQuery({
-    queryKey: ["current-weather", city],
-    queryFn: () => getCurrentWeather(city),
+    queryKey: ["current-weather", lat, lon],
+    queryFn: () => getCurrentWeather(lat, lon),
     select: (data) => ({
       date: data.dt,
       cityName: data.name,
+      countryCode: data.sys.country,
       main: data.weather[0].main,
       description: data.weather[0].description,
       icon: data.weather[0].icon,
@@ -26,7 +27,7 @@ export const useGetCurrentWeather = (city: string) => {
       sunset: data.sys.sunset,
       timezone: data.timezone,
     }),
-    enabled: !!city,
+    enabled: !!lat && !!lon,
     staleTime: 3600000,
   });
 
