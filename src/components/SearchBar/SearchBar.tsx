@@ -44,7 +44,7 @@ const SearchBar = () => {
         value={inputValue}
         className="searchbar"
         type="text"
-        placeholder="Search for a city"
+        placeholder="Type a city name and choose from the list"
         required
         onChange={handleChange}
         autoComplete="off"

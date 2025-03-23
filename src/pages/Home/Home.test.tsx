@@ -17,6 +17,7 @@ import { forecastMock } from "../../mocks/forecast";
 import { useDispatch } from "react-redux";
 import { axe } from "jest-axe";
 import Home from "./Home";
+import { citySuggestionMock } from "../../mocks/citySuggestion";
 
 setUpMocks();
 
@@ -32,13 +33,17 @@ vi.mock("../../hooks/useGetForecast", () => ({
   useGetForecast: () => forecastMock,
 }));
 
+vi.mock("../../hooks/useGetCitySuggestions", () => ({
+  useGetCitySuggestions: () => citySuggestionMock,
+}));
+
 describe("Navbar", () => {
   it("should render the navbar", () => {
     renderComponentWithProviders(<Navbar />);
     expect(screen.getByText("Current Weather")).toBeInTheDocument();
     expect(screen.getByText("Detailed Forecast")).toBeInTheDocument();
     expect(
-      screen.getByPlaceholderText("Search for a city")
+      screen.getByPlaceholderText("Type a city name and choose from the list")
     ).toBeInTheDocument();
   });
 
@@ -51,11 +56,40 @@ describe("Navbar", () => {
 
   it("should call the dispatch function when the user fills in the input and submits", async () => {
     renderComponentWithProviders(<Navbar />);
-    const input = screen.getByPlaceholderText("Search for a city");
+    const input = screen.getByPlaceholderText(
+      "Type a city name and choose from the list"
+    );
     const submitButton = screen.getByAltText("search button icon");
-    await userEvent.type(input, "Lisbon");
+    await userEvent.type(input, "Berlin, DE");
     await userEvent.click(submitButton);
     expect(useDispatch()).toHaveBeenCalled();
+  });
+
+  it("should generate a list of suggestions when the user types", async () => {
+    renderComponentWithProviders(<Navbar />);
+    const input = screen.getByPlaceholderText(
+      "Type a city name and choose from the list"
+    );
+    await userEvent.type(input, "Berlin");
+    expect(screen.getByText("Berlin, DE")).toBeInTheDocument();
+    expect(screen.getByText("Berlin, New Hampshire, US")).toBeInTheDocument();
+    expect(screen.getByText("Berlin, Illinois, US")).toBeInTheDocument();
+    expect(screen.getByText("Berlin, Connecticut, US")).toBeInTheDocument();
+    expect(screen.getByText("Berlin, Maryland, US")).toBeInTheDocument();
+  });
+
+  it("should call the dispatch function when the user fills in the input and clicks a suggestion", async () => {
+    renderComponentWithProviders(<Navbar />);
+    const input = screen.getByPlaceholderText(
+      "Type a city name and choose from the list"
+    );
+    await userEvent.type(input, "Berlin");
+    const suggestion = screen.getByText("Berlin, DE");
+    await userEvent.click(suggestion);
+    expect(useDispatch()).toHaveBeenCalledWith({
+      type: "currentCity/setCurrentCity",
+      payload: { lat: 52.5170365, lon: 13.3888599 },
+    });
   });
 
   it("should navigate to another page when the link is clicked", async () => {
@@ -78,7 +112,7 @@ describe("Navbar", () => {
 describe("CurrentWeather", () => {
   it("should render current weather stats component with mocked store", () => {
     renderComponentWithProviders(<CurrentWeather />);
-    expect(screen.getByText("London")).toBeInTheDocument();
+    expect(screen.getByText("London, GB")).toBeInTheDocument();
     expect(screen.getByText("light rain")).toBeInTheDocument();
     expect(screen.getByText("20°C")).toBeInTheDocument();
   });

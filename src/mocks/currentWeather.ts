@@ -2,6 +2,7 @@ export const currentWeatherMock = {
   data: {
     date: 1628705179,
     cityName: "London",
+    countryCode: "GB",
     main: "Clouds",
     description: "light rain",
     icon: "04d",
