@@ -13,10 +13,12 @@ import Loading from "../../components/Loading/Loading";
 const Home = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
   const { isPending: isCurrentWeatherPending } = useGetCurrentWeather(
-    currentCity.city
+    currentCity.lat,
+    currentCity.lon
   );
   const { isPending: isFiveDayForecastPending } = useGetFiveDayForecast(
-    currentCity.city
+    currentCity.lat,
+    currentCity.lon
   );
 
   if (isCurrentWeatherPending || isFiveDayForecastPending) {

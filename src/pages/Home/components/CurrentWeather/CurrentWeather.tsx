@@ -9,7 +9,10 @@ import { TIMEZONE_OFFSET_MULTIPLIER } from "../../../../types/global";
 
 const CurrentWeather = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
-  const { data: currentWeather } = useGetCurrentWeather(currentCity.city);
+  const { data: currentWeather } = useGetCurrentWeather(
+    currentCity.lat,
+    currentCity.lon
+  );
 
   const timezoneOffset: number = currentWeather?.timezone;
 

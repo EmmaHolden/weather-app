@@ -7,7 +7,10 @@ import { getDayTime } from "../../../../utils/dateUtils";
 
 const OneDayForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
-  const { data: forecastData } = useGetForecast(currentCity.city);
+  const { data: forecastData } = useGetForecast(
+    currentCity.lat,
+    currentCity.lon
+  );
 
   const timezoneOffset = forecastData.city.timezone;
   const nextTwentyFourHours = forecastData.list.slice(0, 8);

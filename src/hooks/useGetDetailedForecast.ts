@@ -1,8 +1,8 @@
 import { getLongDate } from "../utils/dateUtils";
 import { useGetForecast } from "./useGetForecast";
 
-export const useGetDetailedForecast = (city: string) => {
-  const { data, isPending } = useGetForecast(city);
+export const useGetDetailedForecast = (lat: number, lon: number) => {
+  const { data, isPending } = useGetForecast(lat, lon);
 
   let detailedForecast: { date: string; data: any }[] = [];
 

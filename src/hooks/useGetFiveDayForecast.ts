@@ -1,8 +1,8 @@
 import { getLocalHour, getShortDay } from "../utils/dateUtils";
 import { useGetForecast } from "./useGetForecast";
 
-export const useGetFiveDayForecast = (city: string) => {
-  const { data, isPending } = useGetForecast(city);
+export const useGetFiveDayForecast = (lat: number, lon: number) => {
+  const { data, isPending } = useGetForecast(lat, lon);
 
   let fiveDayForecast: {
     date: string;

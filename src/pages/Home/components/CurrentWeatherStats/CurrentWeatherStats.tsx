@@ -10,7 +10,10 @@ import { ReactNode } from "react";
 
 const CurrentWeatherStats = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
-  const { data: currentWeather } = useGetCurrentWeather(currentCity.city);
+  const { data: currentWeather } = useGetCurrentWeather(
+    currentCity.lat,
+    currentCity.lon
+  );
 
   const timezoneOffset = currentWeather?.timezone;
 

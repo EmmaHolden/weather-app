@@ -8,7 +8,7 @@ import Loading from "../../components/Loading/Loading";
 const DetailedForecast = () => {
   const currentCity = useSelector((state: RootState) => state.currentCity);
   const { cityName, timezoneOffset, detailedForecast, isPending } =
-    useGetDetailedForecast(currentCity.city);
+    useGetDetailedForecast(currentCity.lat, currentCity.lon);
 
   if (isPending) {
     return <Loading />;

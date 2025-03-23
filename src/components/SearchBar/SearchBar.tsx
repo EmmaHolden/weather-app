@@ -10,10 +10,10 @@ const SearchBar = () => {
   const [suggestionsOpen, setSuggestionsOpen] = useState(false);
   const { data: suggestionsData = [] } = useGetCitySuggestions(inputValue);
 
-  const handleSelect = (item: string) => {
-    setInputValue(item);
+  const handleSelect = (name: string, lat: number, lon: number) => {
+    setInputValue(name);
     setSuggestionsOpen(false);
-    dispatch(setCurrentCity(item));
+    dispatch(setCurrentCity({ name, lat, lon }));
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,11 +42,22 @@ const SearchBar = () => {
       />{" "}
       {suggestionsOpen && suggestionsData.length > 0 ? (
         <ul className="suggestions-list">
-          {suggestionsData.map((item: { name: string; country: string }) => (
-            <li onClick={() => handleSelect(item.name)} key={item.name}>
-              {item.name}, {item.country}
-            </li>
-          ))}
+          {suggestionsData.map(
+            (item: {
+              name: string;
+              state: string;
+              country: string;
+              lat: number;
+              lon: number;
+            }) => (
+              <li
+                onClick={() => handleSelect(item.name, item.lat, item.lon)}
+                key={(item.lat, item.lon)}
+              >
+                {item.name}, {item.state && item.state + ", "} {item.country}
+              </li>
+            )
+          )}
         </ul>
       ) : null}
       <button className="search-button" type="submit">
