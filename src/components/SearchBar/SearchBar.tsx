@@ -13,7 +13,7 @@ const SearchBar = () => {
   const handleSelect = (name: string, lat: number, lon: number) => {
     setInputValue(name);
     setSuggestionsOpen(false);
-    dispatch(setCurrentCity({ name, lat, lon }));
+    dispatch(setCurrentCity({ lat, lon }));
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

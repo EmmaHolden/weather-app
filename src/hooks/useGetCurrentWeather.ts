@@ -13,6 +13,7 @@ export const useGetCurrentWeather = (lat: number, lon: number) => {
     select: (data) => ({
       date: data.dt,
       cityName: data.name,
+      countryCode: data.sys.country,
       main: data.weather[0].main,
       description: data.weather[0].description,
       icon: data.weather[0].icon,

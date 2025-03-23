@@ -10,6 +10,8 @@ export const useGetDetailedForecast = (lat: number, lon: number) => {
 
   let cityName: string = data.city.name;
 
+  let countryCode: string = data.city.country;
+
   const timezoneOffset: number = data.city.timezone;
 
   for (let timestamp of data.list) {
@@ -27,5 +29,5 @@ export const useGetDetailedForecast = (lat: number, lon: number) => {
     }
   }
 
-  return { cityName, timezoneOffset, detailedForecast, isPending };
+  return { cityName, countryCode, timezoneOffset, detailedForecast, isPending };
 };
