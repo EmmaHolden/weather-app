@@ -19,7 +19,10 @@ const OneDayForecast = () => {
         {nextTwentyFourHours.map((item: any, index: number) => (
           <Widget key={index}>
             <p>{getDayTime(item.dt, timezoneOffset)}</p>
-            <img src={`../images/weather-icons/${item.weather[0].icon}.png`} />
+            <img
+              src={`../images/weather-icons/${item.weather[0].icon}.png`}
+              alt={`${item.weather[0].description} icon`}
+            />
             <p>{Math.round(item.main.temp)}°C</p>
           </Widget>
         ))}

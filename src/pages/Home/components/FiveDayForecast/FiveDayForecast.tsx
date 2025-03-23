@@ -17,7 +17,10 @@ const FiveDayForecast = () => {
             <div key={index} className="five-day-forecast-item frosted-item">
               <p>{day.date}</p>
               <div className="five-day-forecast-image-container">
-                <img src={`../images/weather-icons/${day.icon}.png`} />
+                <img
+                  src={`../images/weather-icons/${day.icon}.png`}
+                  alt="Midday weather icon"
+                />
               </div>
               <div className="high-low-container">
                 <p>H:{day.high}°C</p>

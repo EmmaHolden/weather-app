@@ -34,7 +34,7 @@ body {
 }
 
 a {
-  all: unset;
+  text-decoration: none;
 }
 
 .no-margin {

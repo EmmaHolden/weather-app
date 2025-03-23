@@ -10,7 +10,7 @@ export const useGetForecast = (city: string) => {
     queryKey: ["weather-forecast", city],
     queryFn: () => getWeatherForecast(city),
     enabled: !!city,
-    staleTime: Infinity,
+    staleTime: 3600000,
   });
 
   useEffect(() => {

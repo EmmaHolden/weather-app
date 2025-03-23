@@ -13,7 +13,10 @@ const WeatherTempWindow = ({
   return (
     <>
       <p>{weatherDescription}</p>
-      <img src={`../images/weather-icons/${weatherIcon}.png`} />
+      <img
+        src={`../images/weather-icons/${weatherIcon}.png`}
+        alt={`${weatherDescription}.icon`}
+      />
       <p className="current-temperature">{weatherTemp}°C</p>
     </>
   );

@@ -15,6 +15,8 @@ import { currentWeatherMock } from "../../mocks/currentWeather";
 import { fiveDayMock } from "../../mocks/fiveDayForecast";
 import { forecastMock } from "../../mocks/forecast";
 import { useDispatch } from "react-redux";
+import { axe } from "jest-axe";
+import Home from "./Home";
 
 setUpMocks();
 
@@ -42,7 +44,7 @@ describe("Navbar", () => {
 
   it("should not call the dispatch function when the user input is empty", async () => {
     renderComponentWithProviders(<Navbar />);
-    const submitButton = screen.getByAltText("Submit search");
+    const submitButton = screen.getByAltText("search button icon");
     await userEvent.click(submitButton);
     expect(useDispatch()).not.toHaveBeenCalled();
   });
@@ -50,7 +52,7 @@ describe("Navbar", () => {
   it("should call the dispatch function when the user fills in the input and submits", async () => {
     renderComponentWithProviders(<Navbar />);
     const input = screen.getByPlaceholderText("Search for a city");
-    const submitButton = screen.getByAltText("Submit search");
+    const submitButton = screen.getByAltText("search button icon");
     await userEvent.type(input, "Lisbon");
     await userEvent.click(submitButton);
     expect(useDispatch()).toHaveBeenCalled();
@@ -136,5 +138,13 @@ describe("OneDayForecast", () => {
     renderComponentWithProviders(<OneDayForecast />);
     expect(screen.getByText("Sun 12am")).toBeInTheDocument();
     expect(screen.getByText("Sun 9pm")).toBeInTheDocument();
+  });
+});
+
+describe("Home", () => {
+  it("should have no accessibility violations", async () => {
+    const { container } = renderComponentWithProviders(<Home />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

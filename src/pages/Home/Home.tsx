@@ -24,7 +24,7 @@ const Home = () => {
   }
 
   return (
-    <div className="page-container">
+    <div className="page-container" role="main">
       <Navbar />
       <div className="horizontal-home-container">
         <div className="current-weather-home-container">

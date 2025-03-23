@@ -22,14 +22,6 @@
   border-left: none;
 }
 
-.searchbar:focus {
-  outline: 0.1vw solid var(--darkPurple);
-}
-
-.search-button:focus {
-  outline: none;
-}
-
 .search-button img {
   width: 1rem;
 }
