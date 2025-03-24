@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setTheme } from "../../redux/theme";
 import "./LightDarkModeToggle.css";
+import classNames from "classnames";
 
 const LightDarkModeToggle = () => {
   const dispatch = useDispatch();
@@ -21,20 +22,16 @@ const LightDarkModeToggle = () => {
         onClick={handleSwitch}
       >
         <img
-          className={
-            theme.theme === "light-mode"
-              ? "light-dark-toggle-image hidden"
-              : "light-dark-toggle-image"
-          }
+          className={classNames("light-dark-toggle-image", {
+            hidden: theme.theme === "light-mode",
+          })}
           src={`../images/light-mode.png`}
           alt="light mode icon"
         />
         <img
-          className={
-            theme.theme === "dark-mode"
-              ? "light-dark-toggle-image hidden"
-              : "light-dark-toggle-image"
-          }
+          className={classNames("light-dark-toggle-image", {
+            hidden: theme.theme === "dark-mode",
+          })}
           src={`../images/dark-mode.png`}
           alt="dark mode icon"
         />
