@@ -22,7 +22,6 @@ export const useGetCurrentWeather = (lat: number, lon: number) => {
       humidity: data.main.humidity,
       windSpeed: Math.round(data.wind.speed),
       pressure: data.main.pressure,
-      visibility: Math.round(data.visibility / 1000),
       sunrise: data.sys.sunrise,
       sunset: data.sys.sunset,
       timezone: data.timezone,
