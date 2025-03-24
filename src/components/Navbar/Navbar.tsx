@@ -6,7 +6,7 @@ import LightDarkModeToggle from "../LightDarkModeToggle/LightDarkModeToggle";
 
 const Navbar = () => {
   return (
-    <div className="navbar" role="navigation">
+    <nav className="navbar">
       <div className="nav-button-group">
         <NavLink
           to={RoutePath.Home}
@@ -24,7 +24,7 @@ const Navbar = () => {
       <LightDarkModeToggle />
 
       <SearchBar />
-    </div>
+    </nav>
   );
 };
 
