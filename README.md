@@ -44,7 +44,7 @@ The next tab along navigates to a detailed forecast page, where users can see a 
 
 ### City Search
 
-The user can search for a city to find the current weather and forecast for that city. Times and dates are local time of the city selected. The city is remembered when navigating between the home and detailed forecast pages. Refreshing or starting a new session resets the city back to the default, which for the sake of this project is set to 'London'. However, future improvements could allow the user to set up a profile and choose their own 'home' city to default to.
+The user can search for a city to find the current weather and forecast for that city. As the user types, suggestions appear for the user to select from. Times and dates are local time of the city selected. The city is remembered when navigating between the home and detailed forecast pages. Refreshing or starting a new session resets the city back to the default, which for the sake of this project is set to 'London'. However, future improvements could allow the user to set up a profile and choose their own 'home' city to default to.
 
 ![searching for a city](./public/images/readme/searchCity.gif)
 
