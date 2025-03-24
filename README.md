@@ -6,21 +6,23 @@ This weather app SPA makes use of the free OpenWeatherMap API. To use this app:
 
 1.) Clone the repo to your local machine
 
-2.) Run npm install to install dependencies
+2.) Run `npm install` to install dependencies
 
 3.) Go to [OpenWeatherMap](https://openweathermap.org/) and create a free account.
 
 4.) In your dashboard, go to the API Keys section and create your key. Copy this.
 
-5.) In the repo, create a file named `.env` at the root folder. Copy over:
+5.) In the repo, create a file named `.env.local` at the root folder. Copy over:
 
-VITE_APP_OPENWEATHER_API_KEY = ""
+`VITE_APP_OPENWEATHER_API_KEY = ""`
 
-And inside the "" paste your API key.
+And inside the `""` paste your API key.
 
-6.) Type npm run dev into the terminal to start running the app.
+6.) Type `npm run dev` into the terminal to start running the app.
 
 ## About the app
+
+You can try out my weather app at [https://weather-5umyhl6sx-emma-holdens-projects.vercel.app/](https://weather-5umyhl6sx-emma-holdens-projects.vercel.app/)
 
 ### Design
 
